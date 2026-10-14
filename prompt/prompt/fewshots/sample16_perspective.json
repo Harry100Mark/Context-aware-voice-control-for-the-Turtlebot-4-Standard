@@ -1,0 +1,819 @@
+{
+  "turtlebot": {
+    "position": {
+      "x": 480,
+      "y": 360
+    },
+    "orientation": {
+      "angle_degrees": 0,
+      "compass_direction": "Osten"
+    }
+  },
+  "object_analysis": {
+    "description": "Objekte gruppiert nach Richtung relativ zum Turtlebot (90°-Sektoren)",
+    "sector_definitions": {
+      "vor": "−45° bis +45° relativ zur Turtlebot-Orientierung",
+      "links": "+45° bis +135° relativ zur Turtlebot-Orientierung (positive Winkel = links)",
+      "hinter": "+135° bis +180° und −180° bis −135° relativ zur Turtlebot-Orientierung",
+      "rechts": "−135° bis −45° relativ zur Turtlebot-Orientierung (negative Winkel = rechts)"
+    },
+    "directions": {
+      "vor": [
+        {
+          "id": "karton_1",
+          "name": "Karton 1",
+          "type": "box",
+          "center": [
+            577,
+            368.5
+          ],
+          "distance_cm": 97.37,
+          "relative_angle": 5.0
+        },
+        {
+          "id": "stuhl_8",
+          "name": "Stuhl 8 (blau)",
+          "type": "chair",
+          "center": [
+            587,
+            316
+          ],
+          "distance_cm": 115.69,
+          "relative_angle": -22.4,
+          "color": "blau"
+        },
+        {
+          "id": "stuhl_9",
+          "name": "Stuhl 9 (grau)",
+          "type": "chair",
+          "center": [
+            587,
+            436
+          ],
+          "distance_cm": 131.24,
+          "relative_angle": 35.4,
+          "color": "grau"
+        },
+        {
+          "id": "stuhl_7",
+          "name": "Stuhl 7 (schwarz)",
+          "type": "chair",
+          "center": [
+            587,
+            256
+          ],
+          "distance_cm": 149.21,
+          "relative_angle": -44.2,
+          "color": "schwarz"
+        },
+        {
+          "id": "tisch_4",
+          "name": "Tisch 4",
+          "type": "table",
+          "center": [
+            643,
+            406
+          ],
+          "distance_cm": 169.37,
+          "relative_angle": 15.8
+        },
+        {
+          "id": "tisch_3",
+          "name": "Tisch 3",
+          "type": "table",
+          "center": [
+            643,
+            286
+          ],
+          "distance_cm": 179.01,
+          "relative_angle": -24.4
+        },
+        {
+          "id": "fenster_3",
+          "name": "Fenster 3",
+          "type": "window",
+          "center": [
+            689.0,
+            327.0
+          ],
+          "from": [
+            689,
+            285
+          ],
+          "to": [
+            689,
+            369
+          ],
+          "distance_cm": 211.59,
+          "relative_angle": -9.0
+        },
+        {
+          "id": "wand_2",
+          "name": "Wandsegment 2",
+          "type": "wall",
+          "center": [
+            689.0,
+            327.0
+          ],
+          "from": [
+            689,
+            0
+          ],
+          "to": [
+            689,
+            654
+          ],
+          "length_cm": 654.0,
+          "distance_cm": 211.59,
+          "relative_angle": -9.0
+        },
+        {
+          "id": "fenster_4",
+          "name": "Fenster 4",
+          "type": "window",
+          "center": [
+            689.0,
+            450.0
+          ],
+          "from": [
+            689,
+            408
+          ],
+          "to": [
+            689,
+            492
+          ],
+          "distance_cm": 227.55,
+          "relative_angle": 23.3
+        },
+        {
+          "id": "fenster_2",
+          "name": "Fenster 2",
+          "type": "window",
+          "center": [
+            689.0,
+            204.0
+          ],
+          "from": [
+            689,
+            162
+          ],
+          "to": [
+            689,
+            246
+          ],
+          "distance_cm": 260.8,
+          "relative_angle": -36.7
+        }
+      ],
+      "rechts": [
+        {
+          "id": "tisch_1",
+          "name": "Tisch 1 (PC)",
+          "type": "table",
+          "center": [
+            498.5,
+            186
+          ],
+          "distance_cm": 174.98,
+          "relative_angle": -83.9
+        },
+        {
+          "id": "tisch_2",
+          "name": "Tisch 2 (mit Telefon)",
+          "type": "table",
+          "center": [
+            624,
+            186
+          ],
+          "distance_cm": 225.86,
+          "relative_angle": -50.4
+        },
+        {
+          "id": "stuhl_5",
+          "name": "Stuhl 5 (grau)",
+          "type": "chair",
+          "center": [
+            529,
+            136
+          ],
+          "distance_cm": 229.3,
+          "relative_angle": -77.7,
+          "color": "grau"
+        },
+        {
+          "id": "schrank_2",
+          "name": "Schrank 2",
+          "type": "cabinet",
+          "center": [
+            336.5,
+            139.5
+          ],
+          "distance_cm": 263.08,
+          "relative_angle": -123.1
+        },
+        {
+          "id": "stuhl_6",
+          "name": "Stuhl 6 (blau)",
+          "type": "chair",
+          "center": [
+            657,
+            136
+          ],
+          "distance_cm": 285.49,
+          "relative_angle": -51.7,
+          "color": "blau"
+        },
+        {
+          "id": "wand_10",
+          "name": "Wandsegment 10",
+          "type": "wall",
+          "center": [
+            315.0,
+            91.0
+          ],
+          "from": [
+            315,
+            182
+          ],
+          "to": [
+            315,
+            0
+          ],
+          "length_cm": 182.0,
+          "distance_cm": 315.57,
+          "relative_angle": -121.5
+        },
+        {
+          "id": "schrank_1",
+          "name": "Schrank 1",
+          "type": "cabinet",
+          "center": [
+            522.5,
+            25.5
+          ],
+          "distance_cm": 337.19,
+          "relative_angle": -82.8
+        },
+        {
+          "id": "fenster_1",
+          "name": "Fenster 1",
+          "type": "window",
+          "center": [
+            689.0,
+            81.0
+          ],
+          "from": [
+            689,
+            39
+          ],
+          "to": [
+            689,
+            123
+          ],
+          "distance_cm": 348.6,
+          "relative_angle": -53.2
+        },
+        {
+          "id": "wand_1",
+          "name": "Wandsegment 1",
+          "type": "wall",
+          "center": [
+            502.0,
+            0.0
+          ],
+          "from": [
+            315,
+            0
+          ],
+          "to": [
+            689,
+            0
+          ],
+          "length_cm": 374.0,
+          "distance_cm": 360.67,
+          "relative_angle": -86.5
+        }
+      ],
+      "hinter": [
+        {
+          "id": "stuhl_2",
+          "name": "Stuhl 2 (blau)",
+          "type": "chair",
+          "center": [
+            398,
+            354
+          ],
+          "distance_cm": 82.22,
+          "relative_angle": -175.8,
+          "color": "blau"
+        },
+        {
+          "id": "tisch_10",
+          "name": "Tisch 10 (rund)",
+          "type": "table",
+          "center": [
+            338,
+            354
+          ],
+          "distance_cm": 142.13,
+          "relative_angle": -177.6
+        },
+        {
+          "id": "stuhl_3",
+          "name": "Stuhl 3 (blau)",
+          "type": "chair",
+          "center": [
+            338,
+            414
+          ],
+          "distance_cm": 151.92,
+          "relative_angle": 159.2,
+          "color": "blau"
+        },
+        {
+          "id": "stuhl_1",
+          "name": "Stuhl 1 (blau)",
+          "type": "chair",
+          "center": [
+            338,
+            294
+          ],
+          "distance_cm": 156.59,
+          "relative_angle": -155.1,
+          "color": "blau"
+        },
+        {
+          "id": "stuhl_4",
+          "name": "Stuhl 4 (blau)",
+          "type": "chair",
+          "center": [
+            278,
+            354
+          ],
+          "distance_cm": 202.09,
+          "relative_angle": -178.3,
+          "color": "blau"
+        },
+        {
+          "id": "tuer_3",
+          "name": "Tür 3 (Serverraum)",
+          "type": "door",
+          "center": [
+            249.5,
+            182.0
+          ],
+          "from": [
+            189,
+            182
+          ],
+          "to": [
+            310,
+            182
+          ],
+          "distance_cm": 291.23,
+          "relative_angle": -142.3
+        },
+        {
+          "id": "karton_3",
+          "name": "Karton 3",
+          "type": "box",
+          "center": [
+            170.5,
+            436.5
+          ],
+          "distance_cm": 318.81,
+          "relative_angle": 166.1
+        },
+        {
+          "id": "stuhl_14",
+          "name": "Stuhl 14 (grau)",
+          "type": "chair",
+          "center": [
+            171,
+            541
+          ],
+          "distance_cm": 358.11,
+          "relative_angle": 149.6,
+          "color": "grau"
+        },
+        {
+          "id": "karton_2",
+          "name": "Karton 2",
+          "type": "box",
+          "center": [
+            125.5,
+            436.5
+          ],
+          "distance_cm": 362.66,
+          "relative_angle": 167.8
+        },
+        {
+          "id": "tisch_7",
+          "name": "Tisch 7 (Kartons)",
+          "type": "table",
+          "center": [
+            141,
+            491
+          ],
+          "distance_cm": 363.43,
+          "relative_angle": 158.9
+        },
+        {
+          "id": "wand_9",
+          "name": "Wandsegment 9",
+          "type": "wall",
+          "center": [
+            157.5,
+            182.0
+          ],
+          "from": [
+            0,
+            182
+          ],
+          "to": [
+            315,
+            182
+          ],
+          "length_cm": 315.0,
+          "distance_cm": 368.36,
+          "relative_angle": -151.1
+        },
+        {
+          "id": "regal",
+          "name": "Regal",
+          "type": "shelf",
+          "center": [
+            144,
+            203
+          ],
+          "distance_cm": 370.87,
+          "relative_angle": -155.0
+        },
+        {
+          "id": "kommode",
+          "name": "Kommode (mit Telefon)",
+          "type": "dresser",
+          "center": [
+            190,
+            632
+          ],
+          "distance_cm": 397.6,
+          "relative_angle": 136.8
+        },
+        {
+          "id": "stuhl_15",
+          "name": "Stuhl 15 (schwarz)",
+          "type": "chair",
+          "center": [
+            111,
+            541
+          ],
+          "distance_cm": 411.0,
+          "relative_angle": 153.9,
+          "color": "schwarz"
+        },
+        {
+          "id": "muelleimer",
+          "name": "Mülleimer",
+          "type": "bin",
+          "center": [
+            35,
+            420
+          ],
+          "distance_cm": 449.03,
+          "relative_angle": 172.3
+        },
+        {
+          "id": "tuer_2",
+          "name": "Tür 2 (Serverraum)",
+          "type": "door",
+          "center": [
+            52.0,
+            182.0
+          ],
+          "from": [
+            5,
+            182
+          ],
+          "to": [
+            99,
+            182
+          ],
+          "distance_cm": 463.54,
+          "relative_angle": -157.4
+        },
+        {
+          "id": "tisch_8",
+          "name": "Tisch 8",
+          "type": "table",
+          "center": [
+            40,
+            511.5
+          ],
+          "distance_cm": 465.35,
+          "relative_angle": 161.0
+        },
+        {
+          "id": "whiteboard_1",
+          "name": "Whiteboard 1",
+          "type": "whiteboard",
+          "center": [
+            115.0,
+            654.0
+          ],
+          "from": [
+            65,
+            654
+          ],
+          "to": [
+            165,
+            654
+          ],
+          "distance_cm": 468.68,
+          "relative_angle": 141.1
+        },
+        {
+          "id": "wand_5",
+          "name": "Wandsegment 5",
+          "type": "wall",
+          "center": [
+            -14.5,
+            389.0
+          ],
+          "from": [
+            0,
+            389
+          ],
+          "to": [
+            -29,
+            389
+          ],
+          "length_cm": 29.0,
+          "distance_cm": 495.35,
+          "relative_angle": 176.6
+        },
+        {
+          "id": "wand_8",
+          "name": "Wandsegment 8",
+          "type": "wall",
+          "center": [
+            0.0,
+            226.0
+          ],
+          "from": [
+            0,
+            270
+          ],
+          "to": [
+            0,
+            182
+          ],
+          "length_cm": 88.0,
+          "distance_cm": 498.35,
+          "relative_angle": -164.4
+        },
+        {
+          "id": "wand_7",
+          "name": "Wandsegment 7",
+          "type": "wall",
+          "center": [
+            -14.5,
+            270.0
+          ],
+          "from": [
+            -29,
+            270
+          ],
+          "to": [
+            0,
+            270
+          ],
+          "length_cm": 29.0,
+          "distance_cm": 502.62,
+          "relative_angle": -169.7
+        },
+        {
+          "id": "wand_4",
+          "name": "Wandsegment 4",
+          "type": "wall",
+          "center": [
+            0.0,
+            521.5
+          ],
+          "from": [
+            0,
+            654
+          ],
+          "to": [
+            0,
+            389
+          ],
+          "length_cm": 265.0,
+          "distance_cm": 506.44,
+          "relative_angle": 161.4
+        },
+        {
+          "id": "tisch_9",
+          "name": "Tisch 9",
+          "type": "table",
+          "center": [
+            40,
+            613
+          ],
+          "distance_cm": 507.55,
+          "relative_angle": 150.1
+        },
+        {
+          "id": "tuer_1",
+          "name": "Tür 1 (Flur)",
+          "type": "door",
+          "center": [
+            -29.0,
+            329.5
+          ],
+          "from": [
+            -29,
+            275
+          ],
+          "to": [
+            -29,
+            384
+          ],
+          "distance_cm": 509.91,
+          "relative_angle": -176.6
+        },
+        {
+          "id": "wand_6",
+          "name": "Wandsegment 6",
+          "type": "wall",
+          "center": [
+            -29.0,
+            329.5
+          ],
+          "from": [
+            -29,
+            389
+          ],
+          "to": [
+            -29,
+            270
+          ],
+          "length_cm": 119.0,
+          "distance_cm": 509.91,
+          "relative_angle": -176.6
+        }
+      ],
+      "links": [
+        {
+          "id": "stuhl_11",
+          "name": "Stuhl 11 (grau)",
+          "type": "chair",
+          "center": [
+            466,
+            462
+          ],
+          "distance_cm": 102.96,
+          "relative_angle": 97.8,
+          "color": "grau"
+        },
+        {
+          "id": "stuhl_10",
+          "name": "Stuhl 10 (grau)",
+          "type": "chair",
+          "center": [
+            526,
+            462
+          ],
+          "distance_cm": 111.89,
+          "relative_angle": 65.7,
+          "color": "grau"
+        },
+        {
+          "id": "tisch_6",
+          "name": "Tisch 6",
+          "type": "table",
+          "center": [
+            496,
+            512
+          ],
+          "distance_cm": 152.84,
+          "relative_angle": 84.0
+        },
+        {
+          "id": "stuhl_12",
+          "name": "Stuhl 12 (blau)",
+          "type": "chair",
+          "center": [
+            466,
+            562
+          ],
+          "distance_cm": 202.48,
+          "relative_angle": 94.0,
+          "color": "blau"
+        },
+        {
+          "id": "tisch_5",
+          "name": "Tisch 5 (PC)",
+          "type": "table",
+          "center": [
+            622.5,
+            512
+          ],
+          "distance_cm": 208.35,
+          "relative_angle": 46.8
+        },
+        {
+          "id": "stuhl_13",
+          "name": "Stuhl 13 (blau)",
+          "type": "chair",
+          "center": [
+            655,
+            562
+          ],
+          "distance_cm": 267.26,
+          "relative_angle": 49.1,
+          "color": "blau"
+        },
+        {
+          "id": "fenster_5",
+          "name": "Fenster 5",
+          "type": "window",
+          "center": [
+            689.0,
+            573.0
+          ],
+          "from": [
+            689,
+            531
+          ],
+          "to": [
+            689,
+            615
+          ],
+          "distance_cm": 298.41,
+          "relative_angle": 45.5
+        },
+        {
+          "id": "whiteboard_2",
+          "name": "Whiteboard 2",
+          "type": "whiteboard",
+          "center": [
+            410.0,
+            654.0
+          ],
+          "from": [
+            210,
+            654
+          ],
+          "to": [
+            610,
+            654
+          ],
+          "distance_cm": 302.22,
+          "relative_angle": 103.4
+        },
+        {
+          "id": "wand_3",
+          "name": "Wandsegment 3",
+          "type": "wall",
+          "center": [
+            344.5,
+            654.0
+          ],
+          "from": [
+            689,
+            654
+          ],
+          "to": [
+            0,
+            654
+          ],
+          "length_cm": 689.0,
+          "distance_cm": 323.72,
+          "relative_angle": 114.7
+        },
+        {
+          "id": "pepper",
+          "name": "Pepper (ist ein Roboter)",
+          "type": "robot",
+          "center": [
+            260,
+            624
+          ],
+          "distance_cm": 343.65,
+          "relative_angle": 129.8
+        }
+      ]
+    }
+  },
+  "summary": {
+    "total_objects": 54,
+    "objects_per_direction": {
+      "vor": 10,
+      "rechts": 9,
+      "hinter": 25,
+      "links": 10
+    }
+  }
+}

@@ -1,0 +1,1258 @@
+{
+  "EXAMPLE_PROMPTS": [
+    "Fahre zum Ausgang",
+    "Fahr zum Tisch",
+    "Fahre zum Tisch südlich von dir.",
+    "Fahre einen Meter nach Norden.",
+    "Fahr um die Ecke.",
+    "Fahr nach links.",
+    "Fahr in die Tischecke.",
+    "Fahr in die Ecke.",
+    "Fahr zwischen die Tische hinter dem Tisch rechts von dir.",
+    "Fahr zur Tür links vom Regal.",
+    "Fahr geradeaus, biege dann rechts ab und fahre am neben den runden Tisch.",
+    "Fahr schnell einen Meter rückwärts und dreh dich dann langsam nach rechts.",
+    "Oh, ich meinte das andere links.",
+    "Dreh dich langsam um",
+    "Dreh dich schnell nach rechts"
+  ],
+  "EXAMPLE_OUTPUTS": [
+    {
+      "actions": [
+        {
+          "aktion": "Navigieren",
+          "parameters": {
+            "zielposition": {
+              "x": 30,
+              "y": 330,
+              "z": 0
+            }
+          },
+          "units": {
+            "position": "Zentimeter"
+          },
+          "verification": {
+            "text": "Der Punkt (30, 330) liegt im befahrbaren Bereich mit bottom_left=[20, 325], width=230, height=45, da 20 <= x = 30 <= 250 und 325 <= y = 330 <= 370.",
+            "values": {
+              "x_goal": 30,
+              "y_goal": 330,
+              "bottom_left_x": 20,
+              "bottom_left_y": 325,
+              "width": 230,
+              "height": 45,
+              "x_min": 20,
+              "x_max": 250,
+              "y_min": 325,
+              "y_max": 370
+            }
+          }
+        }
+      ],
+      "explanation": "Ich navigiere zur Tür 1, weil sie der einzige Ausgang ist.",
+      "reasoning": "Es handelt sich um Befehlskategorie B und I, denn mit Ausgang ist eine Tür gemeint.\n            Es gibt 3 Türen im Raum: Tür 1 (Flur), Tür 2 (Server) und Tür 3 (Server).\n            Nur Tür 1 führt nach draußen, also ist Tür 1 der Ausgang.\n            Auf dem Bild ist westlich von Tür 1 ein hellgrüner Bereich, was bedeutet, dass dort ein befahrbarer Bereich ist.\n            Befahrbare Node östlich von Tür 1, die mit ihr benachbart sind, bestätigen das. \"id_30_300\", \"id_30_315\", \"id_30_330\", \"id_30_345\", \"id_30_360\", \"id_30_255\", \"id_30_270\", \"id_30_285\", \"id_30_375\"\n            Diese Nodes liegen in den navigable_areas mit area_index 0, 3 und 1.\n            Tür 1 liegt zwischen (-29, 275) und (-29, 384).\n            \"id_30_315\", \"id_30_330\", \"id_30_345\" liegen nah am Zentrum und eher mittig von Tür 1.\n            \"id_30_330\" liegt am Mittigsten, da das Zentrum von Tür 1 bei (-29, 329.5) liegt.\n            Da \"id_30_300\" in der navigable_area mit area_index 1 liegt und im topologischem Graphen liegt, ist die Zielkoordinate befahrbar und die beste Wahl.\n            "
+    },
+    {
+      "actions": [
+        {
+          "aktion": "Navigieren",
+          "parameters": {
+            "zielposition": {
+              "x": 390,
+              "y": 435,
+              "z": 0
+            }
+          },
+          "units": {
+            "position": "Zentimeter"
+          },
+          "verification": {
+            "text": "Der Punkt (390, 435) liegt im befahrbaren Bereich mit bottom_left=[370, 435], width=70, height=10, da 370 <= x = 390 <= 440 und 435 <= y = 435 <= 445.",
+            "values": {
+              "x_goal": 390,
+              "y_goal": 435,
+              "bottom_left_x": 370,
+              "bottom_left_y": 435,
+              "width": 70,
+              "height": 10,
+              "x_min": 370,
+              "x_max": 440,
+              "y_min": 435,
+              "y_max": 445
+            }
+          }
+        }
+      ],
+      "explanation": "Der runde Tisch mit den blauen Stühlen befindet sich in der Nähe vor mir, daher werde ich dort hin fahren.",
+      "reasoning": "Es handelt sich um Befehlskategorie B, denn es ist ein Zielobjekt angegeben.\n            potenzielle Ziele sind alle Tische (1 bis 10).\n            Der Befehl wurde nicht weiter spezifiziert, daher muss erstmal geschaut werden, welche Tische sich vor dem Turtlebot und in seiner Nähe befinden.\n            vor dem Turtlebot sind Tisch 1 und Tisch 2 und Tisch 3 und Tisch 10.\n            Am nähsten ist Tisch 6.\n            Von den Tischen vor dem Turtlebot ist Tisch 10 am nähsten.\n            Tisch 10 ist nicht viel weiter weg als Tisch 6 nicht viel mehr als einen Meter.\n            Tischt 10 liegt genau in Fahrtrichtung.\n            Tisch 6 und Tisch 10 können beide angefahren werden, da sie befahrbare Nodes in ihrer Nähe haben.\n            Der Turtlebot liegt nördlich von Tisch 10 und Nordwestlich (etwas mehr westlich) von Tisch 6 mit Fahrtrichtung Süden.\n            Die befahrbaren Nodes \"id_285_435\", \"id_390_435\" und \"Stuhl 3\" befinden sich nördlich von Tisch 10. und nördlich von Stuhl 3 befinden sich die befahrbaren Nodes \"id_300_435\", \"id_330_450\", \"id_345_450\", \"id_375_435\".\n            Tisch 6 hat westlich die befahrbaren Nodes \"id_405_555\", \"id_435_450\", \"id_405_480\", \"id_405_495\", \"id_405_510\", \"id_405_525\", \"id_405_540\"\n            Der Turtlebot ist sehr nah am befahrbaren Nachbarn \"id_405_540\" von Tisch 6. Da er sich bereits so nah am potenziellen Ziel Tisch 6 befindet, dieser aber nicht wie Tisch 10 direkt vor ihm liegt, ist vermutlich Tisch 10 die bessere Wahl.\n            \"id_285_435\" und \"id_390_435\" sind näher an Tisch 10 dran.\n            \"id_390_435\" ist näher am Turtlebot dran und kann befindet sich nördlich vom Tisch 10 genauso wie der Turtlebot sich nördlich vom Tisch 10 befindet.\n            \"id_390_435\" ist ein befahrbarer Node in der navigable_area mit area_index 24.\n            Wähle id_390_435 als Zielkoordinate.\n            "
+    },
+    {
+      "actions": [
+        {
+          "aktion": "Navigieren",
+          "parameters": {
+            "zielposition": {
+              "x": 500,
+              "y": 260,
+              "z": 0
+            }
+          },
+          "units": {
+            "position": "Zentimeter"
+          },
+          "verification": {
+            "text": "Der Punkt (500, 260) liegt im befahrbaren Bereich mit bottom_left=[420, 250], width=140, height=15, da 420 <= x = 500 <= 560 und 250 <= y = 260 <= 265.",
+            "values": {
+              "x_goal": 500,
+              "y_goal": 260,
+              "bottom_left_x": 420,
+              "bottom_left_y": 250,
+              "width": 140,
+              "height": 15,
+              "x_min": 420,
+              "x_max": 560,
+              "y_min": 250,
+              "y_max": 265
+            }
+          }
+        }
+      ],
+      "explanation": "Südlich in der Nähe von mir befindet sich der Tisch mit Computer, daher werde ich zu ihm fahren.",
+      "reasoning": "Der Befehl entspricht Befehlskategorie C und ist mit Befehlskategorie B - einer Zielnavigation - kombiniert.\n            Das Ziel ist ein Tisch. Es gibt insgesamt 10 Tische: Tisch 1 bis Tisch 10.\n            Es ist ein Tisch gemeint, der sich südlich vom Turtlebot befindet.\n            Der Turtlebot schaut in Richtung Westen. Südlich bedeutet links aus der Perspektive des Turtlebots.\n            Anhand des Bildes und anhand der JSON der Roboterperspetive lässt sich erkennen, dass Tisch 1 und Tisch 2 sich südlich vom Turtlebot befinden.\n            Der Turtlebot befindet sich nördlich von Tisch 1 und Tisch 2.\n            potenzielle Ziele sind Tisch 1 und Tisch 2. Es muss weiter analysiert werden, welcher von beiden gemeint ist.\n            Der relative Winkel von Tisch 1 liegt bei ca. 90 Grad, während der von Tisch 2 eher bei ca. 120 Grad liegt. Das bedeutet Tisch 1 liegt südlicher als Tisch 2.\n            Prüfe, ob Tisch 1 und 2 befahrbar sind. Suche zuerst nach befahrbaren Nodes nördlich von Tisch 1 und Tisch 2, weil sich der Turtlebot nördlich der Tische befindet.\n            Die befahrbaren Nodes \"id_435_255\", \"id_450_255\", \"id_465_255\", \"id_480_255\", \"id_495_255\", \"id_510_255\", \"id_525_255\", \"id_540_255\" und \"id_555_255\" sind direkte nördliche Nachbarn von Tisch 1.\n            Tisch 2 hat als nördlichen Nachbarn nur \"Stuhl 7\" als nichtbefahrbaren Node. Stuhl 7 hat nur \"id_555_270\" und \"id_555_285\" als befahrbare Nachbar-Nodes im Westen.\n            Tisch 1 kann nördlich direkt angefahren werden und befindet sich südlicher als Tisch 2. Die relative Distance in der JSON Roboterperspektive ist auch kleiner zu Tisch 1 als zu Tisch 2.\n            Suche nach der passenden befahrbaren Bereichen nördlich von Tisch 1. Die befahrbaren Nachbarn befinden sich alle in der navigable_area mit area_index 30.\n            Auch (500, 250) befindet sich in der navigable_area, denn [420,250] <= [500,250] <= [420+140,250+15].\n            Aber das befindet sich am Rande des befahrbaren Bereichs. (500, 260) hält mehr Abstand zum Rand und ist befahrbar, denn [420,250] <= [500,260] <= [420+140,250+15], also liegt es auch in der navigable_area mit area_index 30.\n            Wähle (500,260) Als Zielkoordinate.\n            "
+    },
+    {
+      "actions": [
+        {
+          "aktion": "Richtungsfahrt",
+          "parameters": {
+            "winkel": 180,
+            "is_clockwise": true,
+            "winkelgeschwindigkeit": 40,
+            "distanz": 45,
+            "lineargeschwindigkeit": 1.5,
+            "is_forward": true
+          },
+          "units": {
+            "winkel": "Grad",
+            "distanz": "Zentimeter",
+            "geschwindigkeiten": "m/s oder Grad/s"
+          }
+        }
+      ],
+      "explanation": "Weil ein Karton im Weg ist, fahre ich nur 45 Zentimeter nach Norden.",
+      "reasoning": "Es handelt sich um Befehlskategorie C.\n            Die Richtung - in die der Turtlebot fahren soll - ist Norden.\n            Es ist eine genaue Distanz angegeben - nämlich 1 Meter, was 100 Zentimetern entspricht.\n            100 Zentimeter nach Norden bedeutet 100 Einheiten entlang der positiven y-Achse.\n            Der Turtlebot befindet sich momentan an der Position (120,360). Die Zielkoordinate wäre somit (120,460).\n            Schaue nun, ob der Zielort befahrbar ist. Der näcshte befahrbare Node zum Turtlebot ist \"id_120_360\".\n            \"id_120_360\" hat im Norden den befahrbaren Node \"id_120_375\" als Nachbarn.\n            \"id_120_375\" hat im Norden den befahrbaren Node \"id_120_390\" als Nachbarn.\n            \"id_120_390\" hat im Norden den Node \"Karton 2\" als Nachbarn.\n            \"id_120_390\" liegt in der navigable_area mit area_index 4. (120,405) liegt noch in der navigable_area, denn [75,390] <= [120,405] <= [75+195,390+15].\n            Der Turtlebot könnte 45 Zentimeter nach Norden fahren. Muss überprüfen, ob es nördlich von Karton 2 einen befahrbaren Bereich gibt, der ebenfalls in Frage kommt.\n            Nördlich von Karton 2 ist Tisch 7 im Bild und ist auch der direkte nördliche Nachbar von Karton 2.\n            Nördlich von Tisch 7 ist Stuhl 14 und Stuhl 15. Stuhl 14 ist auch ein direkter Nachbar von Tisch 7.\n            Nördlich von Stuhl 14 befinden sich die direkten befahrbaren Nodes \"id_135_585\", \"id_150_585\", \"id_165_585\", \"id_180_585\" und \"id_210_555\".\n            \"id_120_585 existiert ebenfalls und ist der westliche Nachbar von \"id_135_585\".\n            \"id_120_585 befindet sich in der navigable_area mit area_index 10.\n            Diese hat \"bottom_left\": [105,590], \"width\": 25, \"height\": 45 Was bedeutet, dass (120,590) der südlichste befahrbare Node in der area ist.\n            (120,590) liegt 230 Zentimeter weiter nördlich vom Turtlebot.\n            (120,405) befindet sich 55 Zentimeter zu weit südlich vom gewünschten Ziel und (120,590) befindet sich 185 Zentimeter zu weit nördlich vom gewünschten Ziel.\n            Daher ist (120,590) die bessere Wahl.\n            (120,590) ist direkt anfahrbar, denn (120,360)->(120,375)->(120,390)->(120,405) ergeben einen direkten befahrbaren Pfad.\n            (120,360 bis 405) liegen in area_index 1 und 3 und 4.\n            Daher ist eine Richtungsfahrt die korrekte Aktion.\n            Der Turtlebot muss die Orientierung 90 haben, um sich nach Norden zu drehen. Das entspricht einer Drehung von 180 Grad im Uhrzeigersinn.\n            Der Turtlebot muss eine Distanz von 45 Zentimetern vorwärts zurücklegen, sobald er sich gedreht hat.\n            "
+    },
+    {
+      "actions": [
+        {
+          "aktion": "Navigieren",
+          "parameters": {
+            "zielposition": {
+              "x": 405,
+              "y": 495,
+              "z": 0
+            }
+          },
+          "units": {
+            "position": "Zentimeter"
+          },
+          "verification": {
+            "text": "Der Punkt (405, 495) liegt im befahrbaren Bereich mit bottom_left=[310, 455], width=110, height=100, da 310 <= x = 405 <= 420 und 455 <= y = 495 <= 555.",
+            "values": {
+              "x_goal": 405,
+              "y_goal": 495,
+              "bottom_left_x": 310,
+              "bottom_left_y": 455,
+              "width": 110,
+              "height": 100,
+              "x_min": 310,
+              "x_max": 420,
+              "y_min": 455,
+              "y_max": 555
+            }
+          }
+        }
+      ],
+      "explanation": "Fahre nach links um die Ecke von Tisch 6, da diese in der Nähe und links vor dem Turtlebot liegt.",
+      "reasoning": " Es handelt sich um Befehlskategorie D, denn man fährt entweder links oder rechts um eine Ecke.\n            Der Roboter soll 'um die Ecke' fahren, aber es ist nicht angegeben, ob er links oder rechts um die Ecke fahren soll.\n            Beide Fälle - 'links um die Ecke' und 'rechts um die Ecke' fahren - müssen betrachtet werden.\n            Der Turtlebot schaut nach Westen. Daher bedeutet links Richtung Süden und rechts bedeutet Richtung Norden.\n            Gesucht ist eine Ecke in der Nähe oder vor dem Turtlebot, an der er seine Fahrt Richtung Süden oder Norden weiter fortführen kann.\n            Vor dem Turtlebot - das heißt westlich in seiner Fahrtrichtung - befinden sich Whiteboard 2, Pepper, Kommode, Tisch 9, Tisch 8, Tisch 7, Tisch 6, Tisch 10, Regal, Karton 1 und Karton 2 und Whiteboard 1. Dort sind auch mehrere Stühle, Mülleimer und weitere Objekte, die aber aufgrund ihrer kleinen größe vermutlich eher nicht umfahren werden sollen. \n            Links bzw. südlich vom Turtlebot befinden sich Tisch 4, Tisch 3, Tisch 2, Tisch 1, Schrank 2, Schrank 1 und auch weitere Stühle und ein Karton.\n            rechts bzw. nördlich vom Turtlebot befinden sich eine Objekte. \n            Versuche die Auswahl zu verfeinern, indem nur die Objekte betrachtet werden, die sich in der Nähe des Turtlebots befinden.\n            Von den größeren Objekten (Schrank, Tisch, Kartons, Schränke) befindet sich Tisch 5 am nächsten anhand der relativen Distanz zum Turtlebot.\n            Als zweitnächstes vor dem Turtlebot befindet sich Tisch 6 vor dem Turtlebot. Als dritt- und viertnächstes Tisch 4 und Whiteboard 2.\n            Der Turtlebot ist in Fahrtrichtung Westen. Wenn er seine Fahrtrichtung nach Westen weiter fortführt bevor er am Hindernis vorbei und dann nach Norden oder Süden fährt, dann befindet er sicht westlich vom Hindernis.\n            Das relevante Objekt muss westlich befahrbar sein, damit der Turtlebot sich westlich vom Hindernis positionieren kann.\n            potenzielle Hindernisse sind Tisch 5, Tisch 6, Whiteboard 2, Tisch 4.\n            Tisch 6 befindet sich im Bild westlich von Tisch 5. Tisch 4 befindet sich im Bild südlich von Tisch 5. \n            Tisch 6 hat die westlichen befahrbaren Nachbarn \"id_405_555\", \"id_405_480\", \"id_405_495\", \"id_405_510\", \"id_405_525\" und \"id_405_540\" im topologischen Graphen.\n            Tisch 5 hat Tisch 6 als Nachbarn im Westen.\n            Tisch 4 hat \"Stuhl 9\" und \"Karton 1\" als westliche Nachbarn. \n            Stuhl 9 hat nur \"id_555_420\" als befahrbaren Nachbarn im Süden.\n            Karton 1 hat die befahrbaren Nodes \"id_525_390\", \"id_525_345\", \"id_525_360\", \"id_525_375\" und \"id_555_420\" als Nachbarn im Westen.\n            Tisch 5 ist im Westen nicht befahrbar, da dort Tisch 6 steht. Das heißt der Turtlebot kann nicht links um die Ecke von Tisch 5 fahren.\n            Whiteboard 2 hat nur befahrbare Nodes im Süden als Nachbarn und ansonsten die nördliche Wand. Der Turtlebot kann nicht Richtung Norden um die Ecke von Whiteboard 2 fahren, weil dort eine Wand ist.\n            Im Bild und an den Koordinaten von Tisch 6 und Tisch 4 lässt sich erkennen, dass Tisch 4 südöstlich von Tisch 6 liegt.\n            Tisch 4 hat Tisch 5 im Norden als Nachbarn und Tisch 5 hat Tisch 6 im Westen als Nachbarn.\n            Der Turtlebot kann nicht an Tisch 4 um die Ecke fahren, denn er müsste dafür an Tisch 5 um die Ecke fahren, aber Tisch 6 liegt westlich von Tisch 5.\n            Die westlichen Nachbarn \"id_405_555\", \"id_405_480\", \"id_405_495\", \"id_405_510\", \"id_405_525\" und \"id_405_540\" liegen südlich und westlich vom Turtlebot, der sich an der Position (680,610) befindet.\n            Tisch 6 hat sein Zentrum bei (496,512). Das bedeutet erst eine Zielkoordinate in der Nähe, die weiter westlich und südlich liegt als das Zentrum bedeutet, dass der Turtlebot tatsächlich um die Ecke gefahren wäre.\n            \"id_405_480\", \"id_405_495\" und \"id_405_510\" liegen weiter westlich und südlich vom Zentrum von Tisch 6 und sind in dessen Nähe.\n            Alle 3 stellen potenzielle Zielkoordinaten da.\n            Wähle (405,495) Als Zielkoordinaten, da sie nicht zu weit südlich vom Zentrum von Tisch 6 sind, aber auch nicht zu weit nördlich.\n            (405,495) liegt in der navigable_area mit area_index 20 und ist somit befahrbar. Es handelt sich um eine Navigation.\n            "
+    },
+    {
+      "actions": [
+        {
+          "aktion": "Navigieren",
+          "parameters": {
+            "zielposition": {
+              "x": 260,
+              "y": 220,
+              "z": 0
+            }
+          },
+          "units": {
+            "position": "Zentimeter"
+          },
+          "verification": {
+            "text": "Der Punkt (260, 220) liegt im befahrbaren Bereich mit bottom_left=[205, 205], width=215, height=40, da 205 <= x = 260 <= 420 und 205 <= y = 220 <= 245.",
+            "values": {
+              "x_goal": 260,
+              "y_goal": 220,
+              "bottom_left_x": 205,
+              "bottom_left_y": 205,
+              "width": 215,
+              "height": 40,
+              "x_min": 205,
+              "x_max": 420,
+              "y_min": 205,
+              "y_max": 245
+            }
+          }
+        }
+      ],
+      "explanation": "Biege links hinter dem Schrank ab, weil das links zur Fahrtrichtung liegt.",
+      "reasoning": "Es handelt sich um Befehlskategorie D, weil links aus der Perspektive des Turtlebots als Fahrtrichtung angegeben ist.\n            Der Turtlebot schaut nach Nordwesten. Das bedeutet links ist aus seiner Perspektive Südwesten.\n            links - nicht mal einen Meter entfernt vom Turtlebot - befindet sich Schrank 2.\n            'Fahr nach links' könnte auch 'biege links ab' bedeuten.\n            Weil Schrank 2 westlich vom Turtlebot ist, kann der Turtlebot nur bis zum Schrank fahren, links abbiegen oder südlich fahren.\n            Östlich von Schrank 2 befinden sich die befahrbaren Nachbarknoten \"id_390_105\", \"id_390_120\", \"id_390_135\", \"id_390_150\", \"id_390_165\" und \"id_390_180\"\n            Nördlich von Schrank 2 befinden sich die befahrbaren Nachbarknoten \"id_345_210\" und \"id_360_210\"\n            Der Turtlebot befindet sich in der Nähe vom befahrbaren Node id_405_180 und südwestlich davon befindet sich der befahrbare Node id_390_165, dessen westlicher Nachbar Schrank 2 ist, in der navigable_area mit area_index 27.\n            Die navigable_area mit area_index 27 hat die Geometrie \"bottom_left\": [380,130], \"width\": 40, \"height\": 75. Das bedeutet der südwestlichste Punkt, an den der Turtlebot nach südwesten fahren könnte wäre (380,160), da er sich 20 Zentimeter südlich und 20 Zentimeter westlich von seiner jetzigen Position befindet und noch in der navigable_area liegt.\n            Der Turtlebot könnte auch an die Position (400,130) fahren, was ebenfalls in der navigable_area liegt und weiter südlich vom Turtlebot liegt, wenn er nach Süden fahren würde.\n            Wenn aber 'links abbiegen' gemeint war, dann könnte es sein, dass der Turtlebot, der gerade nach Nordwesten schaut, erst nördlich von Schrank 2 und anschließend weiter westlich fahren soll.\n            Nördlich von Schrank 2 befanden sich die befahren Nachbarknoten \"id_345_210\" und \"id_360_210\"\n            Schrank 2 hat sein Zentrum bei (336.5,139.5). Um links abzubiegen, sollte das Ziel also nicht nur nördlich, sondern auch westlich vom Zentrum von Schrank 2 liegen.\n            id_345_210 liegt in der navigable_area mit area_index 12 und der Geometrie \"bottom_left\": [205,205], \"width\": 215, \"height\": 40.\n            Ein Punkt, der einen Meter westlich von der aktuellen Position des Turtlebots und nördlich von Schrank 2 liegen würde, wäre beispielsweise (300,210) oder auch (300,220)\n            Möglicherweise ist dem Bild zufolge Tür 3 oder auch das Regal das eigentlich Ziel. Daher wäre auch der Punt (260,220) ein guter Kanditat.\n            Links abbiegen macht mehr Sinn, als näher an den Schrank 2 nach Südwesten zu fahren oder auch Richtig Süden zu fahren.\n            Wähle (260,220) Als Zielkoordinate und es handelt sich um eine Navigation.\n            Die Zielkoordinate liegt in der navigable_area mit area_index 12 und ist somit befahrbar.\n            "
+    },
+    {
+      "actions": [
+        {
+          "aktion": "Navigieren",
+          "parameters": {
+            "zielposition": {
+              "x": 555,
+              "y": 420,
+              "z": 0
+            }
+          },
+          "units": {
+            "position": "Zentimeter"
+          },
+          "verification": {
+            "text": "Der Punkt (555, 420) liegt im befahrbaren Bereich mit bottom_left=[540, 415], width=20, height=10, da 540 <= x = 555 <= 560 und 415 <= y = 420 <= 425.",
+            "values": {
+              "x_goal": 555,
+              "y_goal": 420,
+              "bottom_left_x": 540,
+              "bottom_left_y": 415,
+              "width": 20,
+              "height": 10,
+              "x_min": 540,
+              "x_max": 560,
+              "y_min": 415,
+              "y_max": 425
+            }
+          }
+        }
+      ],
+      "explanation": "Fahre in die Ecke der Tische beim Karton, weil sie in Fahrtrichtung liegt.",
+      "reasoning": "Es handelt sich um Kategorie E, weil die Tischecke einen befahrbaren Bereich meint, der durch Tische gebildet wird.\n            Vor und in der Nähe des Turtlebots befinden sich der JSON der Roboterperspektive zufolge Tisch 10, Tisch 6, Tisch 5, Tisch 4, Tisch 3, Tisch 2, Tisch 1.\n            Eine Tischecke wird dadurch gebildet, dass 2 Tische L-förmig zueinanderstehen, sodass der Turtlebot in diesen Eckbereich fahren kann.\n            Tisch 10 ist rund und steht alleine in der Mitte des Raumes, daher kann Tisch 10 keine Ecke zusammen mit anderen Tischen bilden.\n            Dem Bild zufolge bilden Tisch 5 und Tisch 4 eine solche L-Form ebenso wie Tisch 2 und Tisch 3 genauso wie Tisch 7 und Tisch 8.\n            Die Ecke zwischen Tisch 5 und Tisch 4 ist nach Süden von Tisch 5 und Westen von Tisch 4 hin geöffnet.\n            Die Ecke zwischen Tisch 2 und Tisch 3 ist nach Norden von Tisch 2 und Westen von Tisch 3 hin geöffnet.\n            Die Ecke zwischen Tisch 7 und Tisch 8 ist nach Norden von Tisch 7 und Osten von Tisch 8 hin geöffnet.\n            Tisch 5 und Tisch 4 befinden sich in Fahrtrichtung des Turtlebots, da sie sich laut JSON der Roboterperspetive vor dem Turtlebot befinden.\n            Durch die Geometrie von Tisch 5 und Tisch 4 ist die Ecke durch die Punkte (556,472),(597,472),(597,346) beschrieben.\n            Gemeint ist der Bereich, der sich etwas südlich von Tisch 5 und westlich von Tisch 4 befindet.\n            westlich von Tisch 4 befindet sich Karton 1 im topologischen Graphen.\n            Südlich von Tisch 5 befindet sich Tisch 4 im topologischen Graphen.\n            Nördlich von Karton 1 befindet sich der befahrbare Knotenpunkt \"id_555_420\". Dieser befindet sich vom Eckpunkt (597,472) nur 42 Zentimeter in x-Richtung und 52 Zentimeter in y-Richtung entfernt.\n            id_555_420 befindet sich in der navigable_area mit area_index 35 mit der Geometrie \"bottom_left\": [540,415], \"width\": 20, \"height\": 10.\n            Der Punkt (540,415) befindet sich auch in der navigable_area und ist auch noch in der Tischecke.\n            Der Punkt (555.420) erfüllt die Anforderungen aber besser und wird daher gewählt. Es handelt sich um eine Navigation.\n            "
+    },
+    {
+      "actions": [
+        {
+          "aktion": "Navigieren",
+          "parameters": {
+            "zielposition": {
+              "x": 210,
+              "y": 270,
+              "z": 0
+            }
+          },
+          "units": {
+            "position": "Zentimeter"
+          },
+          "verification": {
+            "text": "Der Punkt (210, 270) liegt im befahrbaren Bereich mit bottom_left=[85, 265], width=225, height=20, da 85 <= x = 210 <= 310 und 265 <= y = 270 <= 285.",
+            "values": {
+              "x_goal": 210,
+              "y_goal": 270,
+              "bottom_left_x": 85,
+              "bottom_left_y": 265,
+              "width": 225,
+              "height": 20,
+              "x_min": 85,
+              "x_max": 310,
+              "y_min": 265,
+              "y_max": 285
+            }
+          }
+        }
+      ],
+      "explanation": "Fahre in die nordöstliche Ecke des Raumes, da sie vor dem Turtlebot liegt.",
+      "reasoning": "Es handelt sich um Befehlskategorie E, weil kein Zielobjekt, sondern ein Bereich angegeben ist.\n            Eine Ecke wird durch eine L-förmige Konstellation von Hindernissen gebildet, wobei nicht angegeben ist, um welche Hindernisse es sich handelt.\n            Vor dem Turtlebot befindet sich Tisch 5. In der Nähe des Turtlebots befindet sich Tisch 6 und Pepper.\n            Der Turtlebot befindet sich nördlich des Raumes und schaut RIchtung Osten.\n            Anhand des Bildes lässt sich auch erkennen, dass die Turtlebot auf die nordöstliche Ecke des Raumes zufährt, die durch Wand Nord und Wand Ost gebildet wird und durch die Koordinate (689,654) definiert wird.\n            Tisch 5 und Wand Ost bilden ebenso eine Ecke, die durch die Koordinate (689,552) definiert.\n            Nördlich von Tisch 5 befinden sich die befahrbaren Nachbarknoten \"id_540_585\", \"id_555_585\", \"id_570_585\", \"id_585_585\" und \"id_600_585\".\n            Südlich von Whiteboard 2 befinden sich die befahrbaren Nachbarknoten \"id_570_630\", \"id_585_630\", \"id_600_630\", \"id_615_630\" und \"id_630_630\" Wenn man nur die östlicheren wählt.\n            Wand Nord hat auch befahrbare Nachbarknoten im Süden in der Nähe der Ecke  \"id_645_630\", \"id_660_630\", \"id_615_630\" und \"id_630_630\"\n            Beide Ecken sind befahrbar und liegen dicht beieinander. \n            Die navigable_area mit area_index 33 liegt zugrunde und es sollten Koordinaten östlich in ihr gewählt werden.\n            Vermutlich ist die Ecke der Wände gemeint, da sie durch Wände gebildet ist und dadurch größer ist, als die zwischen Tisch und Wand.\n            Der Turtlebot könnte sich aber auch mittig von beiden Ecken positionieren, da sie so dich beieinander liegen.\n            Wähle eine Koordinate in der Nähe der Ecke der Wände, die aber auch etwas weiter südlich liegt.\n            (660,630) oder (660,620) wären gute Kandidaten.\n            Wähle (660,625) genau dazwischen. Es handelt sich um eine Navigation und die Zielkoordinate befindet sich in der navigable_area mit area_index 33 \n            "
+    },
+    {
+      "actions": [
+        {
+          "aktion": "Navigieren",
+          "parameters": {
+            "zielposition": {
+              "x": 490,
+              "y": 349,
+              "z": 0
+            }
+          },
+          "units": {
+            "position": "Zentimeter"
+          },
+          "verification": {
+            "text": "Der Punkt (490, 349) liegt im befahrbaren Bereich mit bottom_left=[430, 330], width=110, height=55, da 430 <= x = 490 <= 540 und 330 <= y = 349 <= 385.",
+            "values": {
+              "x_goal": 490,
+              "y_goal": 349,
+              "bottom_left_x": 430,
+              "bottom_left_y": 330,
+              "width": 110,
+              "height": 55,
+              "x_min": 430,
+              "x_max": 540,
+              "y_min": 330,
+              "y_max": 385
+            }
+          }
+        }
+      ],
+      "explanation": "Fahre zwischen die 7 Tische und nördlich vom Tisch mit Pc rechts von mir.",
+      "reasoning": "Es handelt sich um Befehlskategorie F und D, denn einmal ist die Relation 'hinter dem Tisch' angegeben mit der Richtung 'rechts' relativ zum Turtlebot und einmal ist die Relation 'zwischen die Tische' angegeben.\n            Der Turtlebot schaut in die Richtung nach Westen und rechts neben ihm bedeutet nördlich von seiner Position.\n            In der JSON der Roboterperspektive befindet sich Tisch 1 am nähsten und rechts mit einem relativen Winkel von ca. 260 Grad, was ziemlich eindeutig auf Tisch 1 bezogen ist.\n            Tisch 6 befindet sich auch ziemlich genau rechts vom Turtlebot, aber die relative Distanz ist zu groß im Vergleich.\n            Im Bild ist gut zu erkennen, dass Tosch 10, Tisch 6, Tisch 5, Tisch 4, Tisch 3, Tisch 1, Tisch 2 eine Art Kreis bilden.\n            Tisch 9, TIsch 8, Tisch 7 bilden dagegen eher eine L-Form, die eine Ecke bilden.\n            Zwischen die Tische fahren könnte ich die Ecke fahren oder in den Kreis fahren bedeuten.\n            Zwischen die Tisch im Kreis zu fahren ergibt aber mehr Sinn und befindet sich unmittelbar nördlich von Tisch 1.\n            An den Koordinatenachsen lässt sich der Punkt (480,360) gut ablesen, der sich in diesem Kreis befindet.\n            zwischen die Tische könnte aber auch zwischen Tisch 10 und Tisch 6 bedeuten, da zwischen ihnen im Bild auch ein befahrbarer Bereich zu erkennen ist ebenso wie zwischen Tisch 1 und Tisch 10.\n            nördlicher von Tisch 1 ist aber der Mittelpunkt des Kreises, in den der Turtlebot fahren könnte.\n            Bezugspunkte sind alle Tische in dieser Kreiskonstellation.\n            Der westlichste Tisch in der Konstellation ist Tisch 10 mit Zentrum bei (338,354).\n            Am östlichsten in der Konstellation sind Tisch 4 und Tisch 3 mit Zentren bei (643,406) und (643,286).\n            Am südlichsten sind Tisch 1 und Tisch 2 mit Zentren bei (498.5,186) und (624,186).\n            Am nördlichsten sind Tisch 6 und 5 mit Zentren bei (496,512) und (622.5,512).\n            Die mittigste y-Koordinate ist also (512+186)/2=349 und die mittigste x-Koordinate ist (338+643)/2=~490.\n            \"id_495_345\" ist der nächste befahrbare Knoten und deutet auf die navigable_area mit area_index 32 in der Auch (490,349) liegt.\n            (495,345), (490,349) und (480,360) sind alles potenzielle Zielkoordinaten, die die Anforderungen erfüllen würden.\n            Wähle (490,349) als finale Zielkoordinate, weil sie am mittigsten liegt und befahrbar ist.\n            "
+    },
+    {
+      "actions": [
+        {
+          "aktion": "Navigieren",
+          "parameters": {
+            "zielposition": {
+              "x": 250,
+              "y": 210,
+              "z": 0
+            }
+          },
+          "units": {
+            "position": "Zentimeter"
+          },
+          "verification": {
+            "text": "Der Punkt (250, 210) liegt im befahrbaren Bereich mit bottom_left=[205, 205], width=215, height=40, da 205 <= x = 250 <= 420 und 205 <= y = 210 <= 245.",
+            "values": {
+              "x_goal": 250,
+              "y_goal": 210,
+              "bottom_left_x": 205,
+              "bottom_left_y": 205,
+              "width": 215,
+              "height": 40,
+              "x_min": 205,
+              "x_max": 420,
+              "y_min": 205,
+              "y_max": 245
+            }
+          }
+        }
+      ],
+      "explanation": "",
+      "reasoning": "Es handelt sich um Befehlskategorie B und F, weil ein direktes Ziel 'Tür' und eine Relation 'links vom Regal' angegeben ist.\n            Es gibt 3 Türen im Raum und ein Regal.\n            Der Turtlebot schaut in Richtung Südosten und das Regal befindet sich rechts von ihm, was Südwestlich bedeutet.\n            Wenn sich das Regal südwestlich vom Turtlebot befindet, dann bedeutet 'links' vom Regal, dass die Tür sich Südöstlicher vom Regal befinden soll.\n            Laut der JSOSN des Roboterperspektive befindet sich das Regal im \"relative_angle\": -78.9 und Tür 1 in \"relative_angle\": -112.3 und Tür 2 in \"relative_angle\": -88.0 und Tür 3 in \"relative_angle\": -60.1.\n            Das bedeutet Tür 3 befindet sich weiter links, Tür 1 weiter rechts und Tür 2 weiter rechts vom Regal.\n            Dementsprechend ist Tür 3 das Ziel. \n            Tür 3 hat die nördlichen befahrbaren Nachbarn \"id_210_210\", \"id_225_210\", \"id_240_210\", \"id_255_210\", \"id_270_210\", \"id_285_210\", \"id_300_210\", \"id_315_210\" und \"id_330_210\"\n            Tür 3 hat die Geometrie \"from\": [189,182], \"to\": [310,182]. ein befahrbarer Node, der sich mittig der Tür befinden würde wäre also (250,210), der sich in der navigable_area mit area_index 12 befindet.\n            Wähle (250,210) und die Aktion ist eine Navigation.\n            "
+    },
+    {
+      "actions": [
+        {
+          "aktion": "Navigieren",
+          "parameters": {
+            "zielposition": {
+              "x": 210,
+              "y": 585,
+              "z": 0
+            }
+          },
+          "units": {
+            "position": "Zentimeter"
+          },
+          "verification": {
+            "text": "Der Punkt (210, 585) liegt im befahrbaren Bereich mit bottom_left=[105, 585], width=115, height=5, da 105 <= x = 210 <= 220 und 585 <= y = 585 <= 590.",
+            "values": {
+              "x_goal": 210,
+              "y_goal": 585,
+              "bottom_left_x": 105,
+              "bottom_left_y": 585,
+              "width": 115,
+              "height": 5,
+              "x_min": 105,
+              "x_max": 220,
+              "y_min": 585,
+              "y_max": 590
+            }
+          }
+        },
+        {
+          "aktion": "Navigieren",
+          "parameters": {
+            "zielposition": {
+              "x": 225,
+              "y": 465,
+              "z": 0
+            }
+          },
+          "units": {
+            "position": "Zentimeter"
+          },
+          "verification": {
+            "text": "Der Punkt (225, 465) liegt im befahrbaren Bereich mit bottom_left=[225, 435], width=85, height=120, da 225 <= x = 225 <= 310 und 435 <= y = 465 <= 555.",
+            "values": {
+              "x_goal": 225,
+              "y_goal": 465,
+              "bottom_left_x": 225,
+              "bottom_left_y": 435,
+              "width": 85,
+              "height": 120,
+              "x_min": 225,
+              "x_max": 310,
+              "y_min": 435,
+              "y_max": 555
+            }
+          }
+        },
+        {
+          "aktion": "Navigieren",
+          "parameters": {
+            "zielposition": {
+              "x": 265,
+              "y": 320,
+              "z": 0
+            }
+          },
+          "units": {
+            "position": "Zentimeter"
+          },
+          "verification": {
+            "text": "Der Punkt (265, 320) liegt im befahrbaren Bereich mit bottom_left=[20, 295], width=250, height=30, da 20 <= x = 265 <= 270 und 295 <= y = 320 <= 325.",
+            "values": {
+              "x_goal": 265,
+              "y_goal": 320,
+              "bottom_left_x": 20,
+              "bottom_left_y": 295,
+              "width": 250,
+              "height": 30,
+              "x_min": 20,
+              "x_max": 270,
+              "y_min": 295,
+              "y_max": 325
+            }
+          }
+        }
+      ],
+      "explanation": "Fahre geradeaus zu Pepper, biege dann hinter dem Tisch mit den Kartons rechts ab und fahre anschließend rechts neben den runden Tisch, weil ich so die Fahrt nach Süden fortführen kann nach dem Abbiegen.",
+      "reasoning": "Es handelt sich um Befehlskategorie G, denn es wird ein Pfad beschrieben.\n            Zuerst soll geradeaus gefahren werden, was eine Richtung relativ zum Roboter beschreibt und Befehlskategorie D entspricht.\n            Danach soll rechts abgebogen werden, was ebenfalls eine Richtung relativ zum Roboter entspricht und damit unter Befehlskategorie D fällt.\n            Anschließend soll er neben den runden Tisch fahren, was Befehlskategorie F entspricht, da eine Relation zu einem Objekt angegeben ist - nämlich 'neben'.\n            Der Turtlebot befindet sich dem Bild zufolge in der nordwestlichen Ecke des Raumes.\n            Er schaut in Richtung Osten, deshalb bedeutet 'geradeaus' aus seiner Perspektive, dass er weiter östlich von seiner Position fahren soll.\n            Der JSON der Roboterperspektive zufolge befinden sich vor dem Turtlebot die Kommode und Pepper.\n            Der nächste befahrbare Node ist \"id_120_585\" und der nächste befahrbare Nachbarknoten im Osten dazu ist \"id_135_585\", der in der navigable_area mit area_index 10 liegt.\n            area_index 10 hat die Geometrie \"bottom_left\": [105,585],\"width\": 115, \"height\": 5.\n            Das bedeutet der Turtlebot könnte garantiert bis an die Position (220,585) geradeaus fahren, nämlich 105 Zentimeter östlich.\n            Der nächste befahrbare Node dort ist \"id_210_585\" und hat Pepper als nördlichen Nachbarn. Der Turtlebot könnte geradeaus ca. einen Meter nach Osten fahren, um sich südlich von Pepper zu positionieren.\n            Der Turtlebot soll anschließend rechts abbiegen, was bedeutet, dass er nach Süden abbiegen soll.\n            Der Turtlebot soll an eine Position geradeaus fahren, an der er rechts abbiegen kann.\n            rechts, also südlich vom Turtlebot, befindet sich laut JSON der Roboterperspektive Tisch 7, Karton 2, Karton 3 ganz in der Nähe.\n            Auch weiter weg und rechts vom Turtlebot also weiter südlich befindet sich der runde Tisch 10, neben dem sich der Turtlebot vermutlich später positionieren sollte.\n            Der Turtlebot soll vermutlich geradeus fahren, sodass er im Anschluss bei Tisch 7 nach Süden abbiegen kann, um sich westlich von Tisch 7 zu positionieren.\n            Tisch 7 hat Karton 2 und Karton 3 als südliche Nachbarn im topologischen Graphen, daher kann bei ihnen schlecht abgebogen werden.\n            Auch rechts vom Turtlebot befindet sich das Regal, aber das ist über 3 Meter entfernt.\n            Tisch 7 hat die östlich befahrbaren Nachbarn \"id_210_555\", \"id_225_435\", \"id_225_450\", \"id_225_465\", \"id_225_480\", \"id_225_495\", \"id_225_510\" und \"id_225_525\"\n            \"id_210_555\" befindet sich sogar direkt südlich von \"id_210_585\" \n            Tisch 7 hat das Zentrum bei (141,491). Deshalb liegt \"id_225_465\" westlich und mittiger bzw. mehr in der Nähe vom Zentrum von Tisch 7 aus gesehen und wäre vermutlich im Anschluss besser, um abzubiegen.\n            Der Turtlebot könnte geradeaus zu \"id_210_585\" fahren und anschließend rechts abbiegen zu \"id_225_465\".\n            Wenn der Turtlebot das tun würde, dann würde er sich an der Position \"id_225_465\" befinden und nach Süden schauen, da er nach Süden fahren musste. Erst geradeaus und dann südlich.\n            Wenn der Turtlebot sich an der Position (225,465) befinden würde und nach Süden schaut, dann wären In seinem Sichtfeld Tisch 10 und Tisch 1.\n            Von allen Tischen ist aber Tisch 10 der einzige der rund ist.\n            Tisch 10 befindet sich vom Zentrum her bei (338,354). \n            Der Pfad des Turtlebots ist momentan durch (115,585) -> (210,585) -> (225,465) und würde sich somit immer näher an Tisch 10 bewegen, was ein gutes Zeichen ist, dass der Pfad passt.\n            Was bedeutet 'neben' dem Tisch 10, wenn sich der Turtlebot an der Position (225,465) befindet und nach Süden schaut?\n            Die Position (225,465) befindet sich vom Tisch 10, der sich bei (338,354) befindet, 113 Zentimeter westlich und 111 Zentimeter nördlich von dessen Zentrum.\n            Der Turtlebot würde sich an der Position (225,465) nordwestlich von Tisch 10 befinden.\n            'neben' den Tisch 10 fahren ist mehrdeutig, denn es ist nicht angegeben, wo sich neben dem Tisch 10 befindet.\n            Der Turtlebot befindet sich bei (225,465) nordwestlich von Tisch 10 und schaut Richtung Süden, was bedeutet, dass sich der Tisch 10 südöstlich vom Turtlebot befindet.\n            Wenn sich der Tisch 10 südöstlich vom Turtlebot befindet, dann bedeutet 'neben' entweder links neben oder rechts neben, was aus Perspektive des Turtlebots entweder nordöstlich oder südwestlich von Tisch 10 bedeutet.\n            Der Turtlebot soll sich nordöstlich oder südwestlich neben Tisch 10 positionieren.\n            Da sich der Turtlebot nordwestlich von Tisch 10 befindet, muss er sich nach Süden bewegen, um sich südwestlich von Tisch 10 zu positionieren.\n            Da sich der Turtlebot nordwestlich von Tisch 10 befindet, muss er sich nach Osten bewegen, um sich nordöstlich von Tisch 10 zu positionieren.\n            Der Turtlebot fährt momentan den Pfad (115,585) -> (210,585) -> (225,465), was bedeutet, dass er nach Osten und anschließend nach Süden fährt.\n            Der Turtlebot könnte seine Fahrt nach Süden fortsetzen, um sich südwestlich von Tisch 10 zu positionieren, was sich aus Sicht der Turtlebots rechts neben Tisch 10 befindet.\n            Der Turtlebot soll sich südwestlich von Tisch 10 positionieren.\n            Tisch 10 hat die südlichen befahrbaren Nachbarknoten \"id_285_270\" und \"id_390_270\" und die westlich befahrbaren Nachbarknoten \"id_255_300\" und \"id_255_405\".\n            Stuhl 4 befindet sich westlich von Tisch 10 und Stuhl 1 befindet sich südlich von Tisch 10.\n            Stuhl 4 hat keine  südlichen befahrbaren Nachbarknoten und Stuhl 1 hat keine westlich befahrbaren Nachbarknoten.\n            (285,270) befindet sich südwestlich von Tisch 10 genauso wie (255,300).\n            \"id_285_270 befindet sich in der navigable_area mit area_index 7 und der Geometrie \"bottom_left\": [85,265],\"width\": 225,\"height\": 20\n            \"id_255_300 befindet sich in der navigable_area mit area_index 0 und der Geometrie \"bottom_left\": [20,295], \"width\": 250, \"height\": 30\n            (310,285) und (270,325) befinden sich nordöstlich der beiden navigable areas.\n            Wähle (265,320) als potenzielle Zielkoordinate, um Tisch 10 und Stuhl 4 nicht zu nahe zu kommen, aber sich noch südwestlich von Tisch 10 positionieren zu können.\n            Die Zielkoordinate ist befahrbar und liegt in der navigable_area mit area_index 0.\n            Der Pfad ergibt (115,585) -> (210,585) -> (225,465) -> (265,320).\n            Es handelt sich um 3 Aktionen und alle 3 sind Navigationen.\n            "
+    },
+    {
+      "actions": [
+        {
+          "aktion": "Richtungsfahrt",
+          "parameters": {
+            "winkel": 0,
+            "is_clockwise": true,
+            "winkelgeschwindigkeit": 5,
+            "distanz": 100,
+            "lineargeschwindigkeit": 0.3,
+            "is_forward": false
+          },
+          "units": {
+            "winkel": "Grad",
+            "distanz": "Zentimeter",
+            "geschwindigkeiten": "m/s oder Grad/s"
+          }
+        },
+        {
+          "aktion": "Drehen",
+          "parameters": {
+            "winkel": 90,
+            "is_clockwise": true,
+            "winkelgeschwindigkeit": 10
+          },
+          "units": {
+            "winkel": "Grad",
+            "geschwindigkeit": "Grad/Sekunde"
+          }
+        }
+      ],
+      "explanation": "Fahre einen Meter rücwärts und drehe mich dann um 90 Grad nach rechts.",
+      "reasoning": "Es handelt sich um Befehlskategorie G, denn der Befehl besteht aus 2 Aktionen (Rückwärtsfahren und anschließend Drehen).\n            Die erste Aktion 'Fahre schnell einen Meter rückwärts' gehört zur Befehlskategorie D, denn rückwärts ist eine Richtung relativ zum Roboter.\n            Die zweite Aktion ''dreh dich langsam nach rechts' ist eine reine Drehung und gehört daher zur Befehlskategorie K.\n            Wenn der Turtlebot sich an der Position (300,540) befindet mit Blickrichtung nach Südwesten, dann bedeutet einen Meter rückwärts fahren, dass er sich einen Meter rückwärts nach Nordosten bewegen soll.\n            Ein Meter nach Nordosten bedeutet 70 Zentimeter in positiver x-Richtung und y-Richtung.\n            Der Turtlebot soll rückwärts an die Position (370,610) fahren.\n            Der nächste befahrbare Node ist \"id_300_540\" und liegt in der navigable_area mit area_index 15.\n            area_index 15 hat die Geometrie \"bottom_left\": [225,435], \"width\": 85, \"height\": 120. Das bedeutet upper_right wäre [310,555]\n            \"id_300_540\", \"id_315_555\", \"id_330_570\", \"id_345_585\", \"id_360_600\" und \"id_375_615\" sind alles befahrbare Knoten im topologischen Graphen, die auf diesem Pfad liegen würden.\n            Der Pfad ist also befahrbar.\n            Der Turtlebot soll schnell rückwärts fahren, also muss is_forward False sein und die Lineargeschwindigkeit hoch gewählt werden zum Beispiel 0.3. Die Distanz 1 Meter entspricht 100 Zentimeter.\n            Der Turtlebot soll sich vor der Fahrt nicht Drehen, weshalb der Winkel vor der Fahrt einfach 0 gewählt werden kann.\n            Anschließend soll sich der Turtlebot langsam nach rechts drehen, also is_clockwise muss True sein.\n            Nach rechts entspricht einem Winkel von 90 Grad.\n            Langsam könnte eine Winkelgeschwindigkeit von 10 sein. Dann dauert die Drehung 9 Sekunden.\n            "
+    },
+    {
+      "actions": [
+        {
+          "aktion": "Navigieren",
+          "parameters": {
+            "zielposition": {
+              "x": 52,
+              "y": 210,
+              "z": 0
+            }
+          },
+          "units": {
+            "position": "Zentimeter"
+          },
+          "verification": {
+            "text": "Der Punkt (52, 210) liegt im befahrbaren Bereich mit bottom_left=[25, 205], width=60, height=90, da 25 <= x = 52 <= 85 und 205 <= y = 210 <= 295.",
+            "values": {
+              "x_goal": 52,
+              "y_goal": 210,
+              "bottom_left_x": 25,
+              "bottom_left_y": 205,
+              "width": 60,
+              "height": 90,
+              "x_min": 25,
+              "x_max": 85,
+              "y_min": 205,
+              "y_max": 295
+            }
+          }
+        }
+      ],
+      "explanation": "Ich werde die letzte Aktion korrigieren und stattdessen zur Tür rechts vom Regal fahren.",
+      "reasoning": "Es handelt sich um Befehlskategorie J, denn der Mensch hat etwas anderes gemeint und möchte sich korrigieren.\n            Im letzten Befehls sollte der Turtlebot zur Tür links vom Regal fahren.\n            Tür 3 war links neben dem Regal und Tür 2 und Tür 1 waren rechts vom Regal.\n            Der Turtlebot ist zur Tür 3 gefahren, weil sie links vom Regal ist.\n            Der Mensch wollte etwas anderes. 'Oh, ich meinte das andere links.' bedeutet, dass der Mensch sich vertan hat.\n            Das andere links bedeutet, dass der Mensch eigentlich rechts sagen wollte statt links.\n            Der Mensch wollte eigentlich, dass der Turtlebot rechts neben das Regal fährt und nicht links.\n            Das Ziel Tür ist weiterhin richtig, nur die Relation zum Regal muss geändert werden.\n            Der Mensch möchte, dass der Turtlebot zur Tür rechts neben dem Regal fährt.\n            Rechts neben dem Regal befinden sich Tür 2 und Tür 1.\n            Tür 2 ist näher am Regal, weil der relative Winkel bezüglich Tür 2 und Regal ähnlicher war als zwischen Tür 3 und Regal.\n            Wähle Tür 2 als neues Ziel.\n            Tür 2 hat die nördlichen Nachbarn \"id_30_210\", \"id_45_210\", \"id_60_210\" und \"id_75_210\".\n            Diese befinden sich alle in der navigable_area mit area_index 2.\n            Tür 2 hat die Geometrie \"from\": [5,182], \"to\": [99,182].\n            Die Zielkoordinate (52,210) befindet sich ebenfalls in der navigable_area und ist genau mittig über der Tür 2.\n            Wähle (52,210) Als Zielkoordinate. Sie ist befahrbar, denn sie liegt in area_index 2. Die Aktion ist eine Navigation.\n            "
+    },
+    {
+      "actions": [
+        {
+          "aktion": "Drehen",
+          "parameters": {
+            "winkel": 180,
+            "is_clockwise": true,
+            "winkelgeschwindigkeit": 10
+          },
+          "units": {
+            "winkel": "Grad",
+            "geschwindigkeit": "Grad/Sekunde"
+          }
+        }
+      ],
+      "explanation": "Drehe um 180 Grad langsam nach rechts.",
+      "reasoning": "Es handelt sich um Befehlskategorie K, denn der Roboter soll sich nur Drehen und nicht fahren.\n            Der Turtlebot soll sich umdrehen, was eine Drehung um 180 Grad ergibt.\n            Es ist keine Richtung angegeben, in die er sich drehen soll. Bei 180 Grad spielt die Richtung aber auch keine Rolle.\n            Der Turtlebot soll sich langsam umdrehen, daher sollte eine geringere Winkelgeschwindigkeit gewählt werden.\n            Lasse den Turtlebot im Uhrzeigersinn mit 10 Grad pro Sekunde drehen, dann braucht er 18 Sekunden für die Drehung.\n            "
+    },
+    {
+      "actions": [
+        {
+          "aktion": "Drehen",
+          "parameters": {
+            "winkel": 90,
+            "is_clockwise": true,
+            "winkelgeschwindigkeit": 90
+          },
+          "units": {
+            "winkel": "Grad",
+            "geschwindigkeit": "Grad/Sekunde"
+          }
+        }
+      ],
+      "explanation": "Drehe um 90 Grad schnell nach rechts.",
+      "reasoning": "Es handelt sich um Befehlskategorie K, denn der Roboter soll sich nur Drehen und nicht fahren.\n            Der Turtlebot soll sich nach rechts drehen, was einer Drehung um 90 Grad im Uhrzeigersinn entspricht.\n            Der Turtlebot soll sich schnell drehen. Wähle daher eine höhere Winkelgeschwindigkeit von 90 Grad pro Sekunde, dann braucht er eine Sekunde für die Drehung.\n            "
+    }
+  ],
+  "EXAMPLE_POSES": [
+    {
+      "name": "Turtlebot",
+      "type": "robot",
+      "position": {
+        "x": 600.0,
+        "y": 600.0
+      },
+      "orientation": {
+        "angle_degrees": 180.0,
+        "display_heading": 180,
+        "matplotlib_heading": 180,
+        "compass_direction": "Westen"
+      },
+      "physical_properties": {
+        "diameter": 30.0,
+        "radius": 15.0
+      },
+      "bounds": {
+        "min_x": 585.0,
+        "max_x": 615.0,
+        "min_y": 585.0,
+        "max_y": 615.0
+      },
+      "current_navigable_area": {
+        "area_index": 33,
+        "bottom_left": [
+          440,
+          595
+        ],
+        "width": 230,
+        "height": 40,
+        "center": [
+          555.0,
+          615.0
+        ]
+      },
+      "nearest_navigable_node": {
+        "node_id": "id_600_600",
+        "position": {
+          "x": 600,
+          "y": 600
+        },
+        "distance": 0.0
+      }
+    },
+    {
+      "name": "Turtlebot",
+      "type": "robot",
+      "position": {
+        "x": 360.0,
+        "y": 600.0
+      },
+      "orientation": {
+        "angle_degrees": 270.0,
+        "display_heading": 270,
+        "matplotlib_heading": 270,
+        "compass_direction": "Süden"
+      },
+      "physical_properties": {
+        "diameter": 30.0,
+        "radius": 15.0
+      },
+      "bounds": {
+        "min_x": 345.0,
+        "max_x": 375.0,
+        "min_y": 585.0,
+        "max_y": 615.0
+      },
+      "current_navigable_area": {
+        "area_index": 18,
+        "bottom_left": [
+          305,
+          585
+        ],
+        "width": 135,
+        "height": 50,
+        "center": [
+          372.5,
+          610.0
+        ]
+      },
+      "nearest_navigable_node": {
+        "node_id": "id_360_600",
+        "position": {
+          "x": 360,
+          "y": 600
+        },
+        "distance": 0.0
+      }
+    },
+    {
+      "name": "Turtlebot",
+      "type": "robot",
+      "position": {
+        "x": 500.0,
+        "y": 355.0
+      },
+      "orientation": {
+        "angle_degrees": 180.0,
+        "display_heading": 180,
+        "matplotlib_heading": 180,
+        "compass_direction": "Westen"
+      },
+      "physical_properties": {
+        "diameter": 30.0,
+        "radius": 15.0
+      },
+      "bounds": {
+        "min_x": 485.0,
+        "max_x": 515.0,
+        "min_y": 340.0,
+        "max_y": 370.0
+      },
+      "current_navigable_area": {
+        "area_index": 32,
+        "bottom_left": [
+          430,
+          330
+        ],
+        "width": 110,
+        "height": 55,
+        "center": [
+          485.0,
+          357.5
+        ]
+      },
+      "nearest_navigable_node": {
+        "node_id": "id_495_360",
+        "position": {
+          "x": 495,
+          "y": 360
+        },
+        "distance": 7.07
+      }
+    },
+    {
+      "name": "Turtlebot",
+      "type": "robot",
+      "position": {
+        "x": 120.0,
+        "y": 360.0
+      },
+      "orientation": {
+        "angle_degrees": 270.0,
+        "display_heading": 270,
+        "matplotlib_heading": 270,
+        "compass_direction": "Süden"
+      },
+      "physical_properties": {
+        "diameter": 30.0,
+        "radius": 15.0
+      },
+      "bounds": {
+        "min_x": 105.0,
+        "max_x": 135.0,
+        "min_y": 345.0,
+        "max_y": 375.0
+      },
+      "current_navigable_area": {
+        "area_index": 1,
+        "bottom_left": [
+          20,
+          325
+        ],
+        "width": 230,
+        "height": 45,
+        "center": [
+          135.0,
+          347.5
+        ]
+      },
+      "nearest_navigable_node": {
+        "node_id": "id_120_360",
+        "position": {
+          "x": 120,
+          "y": 360
+        },
+        "distance": 0.0
+      }
+    },
+    {
+      "name": "Turtlebot",
+      "type": "robot",
+      "position": {
+        "x": 580.0,
+        "y": 610.0
+      },
+      "orientation": {
+        "angle_degrees": 180.0,
+        "display_heading": 180,
+        "matplotlib_heading": 180,
+        "compass_direction": "Westen"
+      },
+      "physical_properties": {
+        "diameter": 30.0,
+        "radius": 15.0
+      },
+      "bounds": {
+        "min_x": 565.0,
+        "max_x": 595.0,
+        "min_y": 595.0,
+        "max_y": 625.0
+      },
+      "current_navigable_area": {
+        "area_index": 33,
+        "bottom_left": [
+          440,
+          595
+        ],
+        "width": 230,
+        "height": 40,
+        "center": [
+          555.0,
+          615.0
+        ]
+      },
+      "nearest_navigable_node": {
+        "node_id": "id_585_615",
+        "position": {
+          "x": 585,
+          "y": 615
+        },
+        "distance": 7.07
+      }
+    },
+    {
+      "name": "Turtlebot",
+      "type": "robot",
+      "position": {
+        "x": 400.0,
+        "y": 180.0
+      },
+      "orientation": {
+        "angle_degrees": 135.0,
+        "display_heading": 135,
+        "matplotlib_heading": 135,
+        "compass_direction": "Nordwest"
+      },
+      "physical_properties": {
+        "diameter": 30.0,
+        "radius": 15.0
+      },
+      "bounds": {
+        "min_x": 385.0,
+        "max_x": 415.0,
+        "min_y": 165.0,
+        "max_y": 195.0
+      },
+      "current_navigable_area": {
+        "area_index": 27,
+        "bottom_left": [
+          380,
+          130
+        ],
+        "width": 40,
+        "height": 75,
+        "center": [
+          400.0,
+          167.5
+        ]
+      },
+      "nearest_navigable_node": {
+        "node_id": "id_405_180",
+        "position": {
+          "x": 405,
+          "y": 180
+        },
+        "distance": 5.0
+      }
+    },
+    {
+      "name": "Turtlebot",
+      "type": "robot",
+      "position": {
+        "x": 440.0,
+        "y": 300.0
+      },
+      "orientation": {
+        "angle_degrees": 45.0,
+        "display_heading": 45,
+        "matplotlib_heading": 45,
+        "compass_direction": "Nordost"
+      },
+      "physical_properties": {
+        "diameter": 30.0,
+        "radius": 15.0
+      },
+      "bounds": {
+        "min_x": 425.0,
+        "max_x": 455.0,
+        "min_y": 285.0,
+        "max_y": 315.0
+      },
+      "current_navigable_area": {
+        "area_index": 28,
+        "bottom_left": [
+          410,
+          285
+        ],
+        "width": 150,
+        "height": 40,
+        "center": [
+          485.0,
+          305.0
+        ]
+      },
+      "nearest_navigable_node": {
+        "node_id": "id_435_300",
+        "position": {
+          "x": 435,
+          "y": 300
+        },
+        "distance": 5.0
+      }
+    },
+    {
+      "name": "Turtlebot",
+      "type": "robot",
+      "position": {
+        "x": 420.0,
+        "y": 620.0
+      },
+      "orientation": {
+        "angle_degrees": 0.0,
+        "display_heading": 0,
+        "matplotlib_heading": 0,
+        "compass_direction": "Osten"
+      },
+      "physical_properties": {
+        "diameter": 30.0,
+        "radius": 15.0
+      },
+      "bounds": {
+        "min_x": 405.0,
+        "max_x": 435.0,
+        "min_y": 605.0,
+        "max_y": 635.0
+      },
+      "current_navigable_area": {
+        "area_index": 18,
+        "bottom_left": [
+          305,
+          585
+        ],
+        "width": 135,
+        "height": 50,
+        "center": [
+          372.5,
+          610.0
+        ]
+      },
+      "nearest_navigable_node": {
+        "node_id": "id_420_615",
+        "position": {
+          "x": 420,
+          "y": 615
+        },
+        "distance": 5.0
+      }
+    },
+    {
+      "name": "Turtlebot",
+      "type": "robot",
+      "position": {
+        "x": 480.0,
+        "y": 80.0
+      },
+      "orientation": {
+        "angle_degrees": 180.0,
+        "display_heading": 180,
+        "matplotlib_heading": 180,
+        "compass_direction": "Westen"
+      },
+      "physical_properties": {
+        "diameter": 30.0,
+        "radius": 15.0
+      },
+      "bounds": {
+        "min_x": 465.0,
+        "max_x": 495.0,
+        "min_y": 65.0,
+        "max_y": 95.0
+      },
+      "current_navigable_area": {
+        "area_index": 21,
+        "bottom_left": [
+          345,
+          75
+        ],
+        "width": 325,
+        "height": 5,
+        "center": [
+          507.5,
+          77.5
+        ]
+      },
+      "nearest_navigable_node": {
+        "node_id": "id_480_75",
+        "position": {
+          "x": 480,
+          "y": 75
+        },
+        "distance": 5.0
+      }
+    },
+    {
+      "name": "Turtlebot",
+      "type": "robot",
+      "position": {
+        "x": 330.0,
+        "y": 480.0
+      },
+      "orientation": {
+        "angle_degrees": 315.0,
+        "display_heading": 315,
+        "matplotlib_heading": 315,
+        "compass_direction": "Südost"
+      },
+      "physical_properties": {
+        "diameter": 30.0,
+        "radius": 15.0
+      },
+      "bounds": {
+        "min_x": 315.0,
+        "max_x": 345.0,
+        "min_y": 465.0,
+        "max_y": 495.0
+      },
+      "current_navigable_area": {
+        "area_index": 20,
+        "bottom_left": [
+          310,
+          455
+        ],
+        "width": 110,
+        "height": 100,
+        "center": [
+          365.0,
+          505.0
+        ]
+      },
+      "nearest_navigable_node": {
+        "node_id": "id_330_480",
+        "position": {
+          "x": 330,
+          "y": 480
+        },
+        "distance": 0.0
+      }
+    },
+    {
+      "name": "Turtlebot",
+      "type": "robot",
+      "position": {
+        "x": 115.0,
+        "y": 585.0
+      },
+      "orientation": {
+        "angle_degrees": 0.0,
+        "display_heading": 0,
+        "matplotlib_heading": 0,
+        "compass_direction": "Osten"
+      },
+      "physical_properties": {
+        "diameter": 30.0,
+        "radius": 15.0
+      },
+      "bounds": {
+        "min_x": 100.0,
+        "max_x": 130.0,
+        "min_y": 570.0,
+        "max_y": 600.0
+      },
+      "current_navigable_area": {
+        "area_index": 10,
+        "bottom_left": [
+          105,
+          585
+        ],
+        "width": 115,
+        "height": 5,
+        "center": [
+          162.5,
+          587.5
+        ]
+      },
+      "nearest_navigable_node": {
+        "node_id": "id_120_585",
+        "position": {
+          "x": 120,
+          "y": 585
+        },
+        "distance": 5.0
+      }
+    },
+    {
+      "name": "Turtlebot",
+      "type": "robot",
+      "position": {
+        "x": 300.0,
+        "y": 540.0
+      },
+      "orientation": {
+        "angle_degrees": 225.0,
+        "display_heading": 225,
+        "matplotlib_heading": 225,
+        "compass_direction": "Südwest"
+      },
+      "physical_properties": {
+        "diameter": 30.0,
+        "radius": 15.0
+      },
+      "bounds": {
+        "min_x": 285.0,
+        "max_x": 315.0,
+        "min_y": 525.0,
+        "max_y": 555.0
+      },
+      "current_navigable_area": {
+        "area_index": 15,
+        "bottom_left": [
+          225,
+          435
+        ],
+        "width": 85,
+        "height": 120,
+        "center": [
+          267.5,
+          495.0
+        ]
+      },
+      "nearest_navigable_node": {
+        "node_id": "id_300_540",
+        "position": {
+          "x": 300,
+          "y": 540
+        },
+        "distance": 0.0
+      }
+    },
+    {
+      "name": "Turtlebot",
+      "type": "robot",
+      "position": {
+        "x": 250.0,
+        "y": 210.0
+      },
+      "orientation": {
+        "angle_degrees": 270.0,
+        "display_heading": 270,
+        "matplotlib_heading": 270,
+        "compass_direction": "Süden"
+      },
+      "physical_properties": {
+        "diameter": 30.0,
+        "radius": 15.0
+      },
+      "bounds": {
+        "min_x": 235.0,
+        "max_x": 265.0,
+        "min_y": 195.0,
+        "max_y": 225.0
+      },
+      "current_navigable_area": {
+        "area_index": 12,
+        "bottom_left": [
+          205,
+          205
+        ],
+        "width": 215,
+        "height": 40,
+        "center": [
+          312.5,
+          225.0
+        ]
+      },
+      "nearest_navigable_node": {
+        "node_id": "id_255_210",
+        "position": {
+          "x": 255,
+          "y": 210
+        },
+        "distance": 5.0
+      }
+    },
+    {
+      "name": "Turtlebot",
+      "type": "robot",
+      "position": {
+        "x": 360.0,
+        "y": 600.0
+      },
+      "orientation": {
+        "angle_degrees": 180.0,
+        "display_heading": 180,
+        "matplotlib_heading": 180,
+        "compass_direction": "Westen"
+      },
+      "physical_properties": {
+        "diameter": 30.0,
+        "radius": 15.0
+      },
+      "bounds": {
+        "min_x": 345.0,
+        "max_x": 375.0,
+        "min_y": 585.0,
+        "max_y": 615.0
+      },
+      "current_navigable_area": {
+        "area_index": 18,
+        "bottom_left": [
+          305,
+          585
+        ],
+        "width": 135,
+        "height": 50,
+        "center": [
+          372.5,
+          610.0
+        ]
+      },
+      "nearest_navigable_node": {
+        "node_id": "id_360_600",
+        "position": {
+          "x": 360,
+          "y": 600
+        },
+        "distance": 0.0
+      }
+    },
+    {
+      "name": "Turtlebot",
+      "type": "robot",
+      "position": {
+        "x": 480.0,
+        "y": 360.0
+      },
+      "orientation": {
+        "angle_degrees": 0.0,
+        "display_heading": 0,
+        "matplotlib_heading": 0,
+        "compass_direction": "Osten"
+      },
+      "physical_properties": {
+        "diameter": 30.0,
+        "radius": 15.0
+      },
+      "bounds": {
+        "min_x": 465.0,
+        "max_x": 495.0,
+        "min_y": 345.0,
+        "max_y": 375.0
+      },
+      "current_navigable_area": {
+        "area_index": 32,
+        "bottom_left": [
+          430,
+          330
+        ],
+        "width": 110,
+        "height": 55,
+        "center": [
+          485.0,
+          357.5
+        ]
+      },
+      "nearest_navigable_node": {
+        "node_id": "id_480_360",
+        "position": {
+          "x": 480,
+          "y": 360
+        },
+        "distance": 0.0
+      }
+    }
+  ],
+  "EXAMPLE_OLD_PROMPTS": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    "Fahr zur Tür links vom Regal.",
+    null,
+    null
+  ],
+  "EXAMPLE_OLD_POSITIONS": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    [
+      330,
+      480,
+      315
+    ],
+    null,
+    null
+  ]
+}

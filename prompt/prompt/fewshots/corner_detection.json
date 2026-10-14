@@ -1,0 +1,429 @@
+{
+  "turtlebot": {
+    "position": {
+      "x": 500,
+      "y": 260
+    },
+    "orientation": {
+      "angle_degrees": 180,
+      "compass_direction": "Westen"
+    }
+  },
+  "object_analysis": {
+    "description": "Objekte gruppiert nach Richtung relativ zum Turtlebot (90°-Sektoren)",
+    "sector_definitions": {
+      "vor": "−45° bis +45° relativ zur Turtlebot-Orientierung",
+      "links": "+45° bis +135° relativ zur Turtlebot-Orientierung (positive Winkel = links)",
+      "hinter": "+135° bis +180° und −180° bis −135° relativ zur Turtlebot-Orientierung",
+      "rechts": "−135° bis −45° relativ zur Turtlebot-Orientierung (negative Winkel = rechts)"
+    },
+    "directions": {
+      "vor": [
+        {
+          "id": "stuhl_2",
+          "name": "Stuhl 2 (blau)",
+          "type": "chair",
+          "center": [
+            398,
+            354
+          ],
+          "distance_cm": 138.71,
+          "relative_angle": -42.7,
+          "color": "blau"
+        },
+        {
+          "id": "stuhl_1",
+          "name": "Stuhl 1 (blau)",
+          "type": "chair",
+          "center": [
+            338,
+            294
+          ],
+          "distance_cm": 165.53,
+          "relative_angle": -11.9,
+          "color": "blau"
+        },
+        {
+          "id": "tisch_10",
+          "name": "Tisch 10 (rund)",
+          "type": "table",
+          "center": [
+            338,
+            354
+          ],
+          "distance_cm": 187.3,
+          "relative_angle": -30.1
+        },
+        {
+          "id": "schrank_2",
+          "name": "Schrank 2",
+          "type": "cabinet",
+          "center": [
+            336.5,
+            139.5
+          ],
+          "distance_cm": 203.11,
+          "relative_angle": 36.4
+        },
+        {
+          "id": "stuhl_3",
+          "name": "Stuhl 3 (blau)",
+          "type": "chair",
+          "center": [
+            338,
+            414
+          ],
+          "distance_cm": 223.52,
+          "relative_angle": -43.5,
+          "color": "blau"
+        },
+        {
+          "id": "stuhl_4",
+          "name": "Stuhl 4 (blau)",
+          "type": "chair",
+          "center": [
+            278,
+            354
+          ],
+          "distance_cm": 241.08,
+          "relative_angle": -22.9,
+          "color": "blau"
+        },
+        {
+          "id": "regal",
+          "name": "Regal",
+          "type": "shelf",
+          "center": [
+            144,
+            203
+          ],
+          "distance_cm": 360.53,
+          "relative_angle": 9.1
+        },
+        {
+          "id": "karton_3",
+          "name": "Karton 3",
+          "type": "box",
+          "center": [
+            170.5,
+            436.5
+          ],
+          "distance_cm": 373.79,
+          "relative_angle": -28.2
+        },
+        {
+          "id": "karton_2",
+          "name": "Karton 2",
+          "type": "box",
+          "center": [
+            125.5,
+            436.5
+          ],
+          "distance_cm": 414.01,
+          "relative_angle": -25.2
+        },
+        {
+          "id": "tisch_7",
+          "name": "Tisch 7 (Kartons)",
+          "type": "table",
+          "center": [
+            141,
+            491
+          ],
+          "distance_cm": 426.9,
+          "relative_angle": -32.8
+        },
+        {
+          "id": "stuhl_14",
+          "name": "Stuhl 14 (grau)",
+          "type": "chair",
+          "center": [
+            171,
+            541
+          ],
+          "distance_cm": 432.67,
+          "relative_angle": -40.5,
+          "color": "grau"
+        },
+        {
+          "id": "stuhl_15",
+          "name": "Stuhl 15 (schwarz)",
+          "type": "chair",
+          "center": [
+            111,
+            541
+          ],
+          "distance_cm": 479.88,
+          "relative_angle": -35.8,
+          "color": "schwarz"
+        },
+        {
+          "id": "muelleimer",
+          "name": "Mülleimer",
+          "type": "bin",
+          "center": [
+            35,
+            420
+          ],
+          "distance_cm": 491.76,
+          "relative_angle": -19.0
+        },
+        {
+          "id": "tisch_8",
+          "name": "Tisch 8",
+          "type": "table",
+          "center": [
+            40,
+            511.5
+          ],
+          "distance_cm": 524.26,
+          "relative_angle": -28.7
+        },
+        {
+          "id": "tisch_9",
+          "name": "Tisch 9",
+          "type": "table",
+          "center": [
+            40,
+            613
+          ],
+          "distance_cm": 579.84,
+          "relative_angle": -37.5
+        }
+      ],
+      "rechts": [
+        {
+          "id": "karton_1",
+          "name": "Karton 1",
+          "type": "box",
+          "center": [
+            577,
+            368.5
+          ],
+          "distance_cm": 133.05,
+          "relative_angle": -125.4
+        },
+        {
+          "id": "stuhl_9",
+          "name": "Stuhl 9 (grau)",
+          "type": "chair",
+          "center": [
+            587,
+            436
+          ],
+          "distance_cm": 196.33,
+          "relative_angle": -116.3,
+          "color": "grau"
+        },
+        {
+          "id": "stuhl_10",
+          "name": "Stuhl 10 (grau)",
+          "type": "chair",
+          "center": [
+            526,
+            462
+          ],
+          "distance_cm": 203.67,
+          "relative_angle": -97.3,
+          "color": "grau"
+        },
+        {
+          "id": "tisch_4",
+          "name": "Tisch 4",
+          "type": "table",
+          "center": [
+            643,
+            406
+          ],
+          "distance_cm": 204.36,
+          "relative_angle": -134.4
+        },
+        {
+          "id": "stuhl_11",
+          "name": "Stuhl 11 (grau)",
+          "type": "chair",
+          "center": [
+            466,
+            462
+          ],
+          "distance_cm": 204.84,
+          "relative_angle": -80.4,
+          "color": "grau"
+        },
+        {
+          "id": "tisch_6",
+          "name": "Tisch 6",
+          "type": "table",
+          "center": [
+            496,
+            512
+          ],
+          "distance_cm": 252.03,
+          "relative_angle": -89.1
+        },
+        {
+          "id": "tisch_5",
+          "name": "Tisch 5 (PC)",
+          "type": "table",
+          "center": [
+            622.5,
+            512
+          ],
+          "distance_cm": 280.2,
+          "relative_angle": -115.9
+        },
+        {
+          "id": "stuhl_12",
+          "name": "Stuhl 12 (blau)",
+          "type": "chair",
+          "center": [
+            466,
+            562
+          ],
+          "distance_cm": 303.91,
+          "relative_angle": -83.6,
+          "color": "blau"
+        },
+        {
+          "id": "stuhl_13",
+          "name": "Stuhl 13 (blau)",
+          "type": "chair",
+          "center": [
+            655,
+            562
+          ],
+          "distance_cm": 339.45,
+          "relative_angle": -117.2,
+          "color": "blau"
+        },
+        {
+          "id": "pepper",
+          "name": "Pepper (ist ein Roboter)",
+          "type": "robot",
+          "center": [
+            260,
+            624
+          ],
+          "distance_cm": 436.0,
+          "relative_angle": -56.6
+        },
+        {
+          "id": "kommode",
+          "name": "Kommode (mit Telefon)",
+          "type": "dresser",
+          "center": [
+            190,
+            632
+          ],
+          "distance_cm": 484.24,
+          "relative_angle": -50.2
+        }
+      ],
+      "hinter": [
+        {
+          "id": "stuhl_7",
+          "name": "Stuhl 7 (schwarz)",
+          "type": "chair",
+          "center": [
+            587,
+            256
+          ],
+          "distance_cm": 87.09,
+          "relative_angle": 177.4,
+          "color": "schwarz"
+        },
+        {
+          "id": "stuhl_8",
+          "name": "Stuhl 8 (blau)",
+          "type": "chair",
+          "center": [
+            587,
+            316
+          ],
+          "distance_cm": 103.46,
+          "relative_angle": -147.2,
+          "color": "blau"
+        },
+        {
+          "id": "tisch_2",
+          "name": "Tisch 2 (mit Telefon)",
+          "type": "table",
+          "center": [
+            624,
+            186
+          ],
+          "distance_cm": 144.4,
+          "relative_angle": 149.2
+        },
+        {
+          "id": "tisch_3",
+          "name": "Tisch 3",
+          "type": "table",
+          "center": [
+            643,
+            286
+          ],
+          "distance_cm": 145.34,
+          "relative_angle": -169.7
+        },
+        {
+          "id": "stuhl_6",
+          "name": "Stuhl 6 (blau)",
+          "type": "chair",
+          "center": [
+            657,
+            136
+          ],
+          "distance_cm": 200.06,
+          "relative_angle": 141.7,
+          "color": "blau"
+        }
+      ],
+      "links": [
+        {
+          "id": "tisch_1",
+          "name": "Tisch 1 (PC)",
+          "type": "table",
+          "center": [
+            498.5,
+            186
+          ],
+          "distance_cm": 74.02,
+          "relative_angle": 88.8
+        },
+        {
+          "id": "stuhl_5",
+          "name": "Stuhl 5 (grau)",
+          "type": "chair",
+          "center": [
+            529,
+            136
+          ],
+          "distance_cm": 127.35,
+          "relative_angle": 103.2,
+          "color": "grau"
+        },
+        {
+          "id": "schrank_1",
+          "name": "Schrank 1",
+          "type": "cabinet",
+          "center": [
+            522.5,
+            25.5
+          ],
+          "distance_cm": 235.58,
+          "relative_angle": 95.5
+        }
+      ]
+    }
+  },
+  "summary": {
+    "total_objects": 34,
+    "objects_per_direction": {
+      "vor": 15,
+      "rechts": 11,
+      "hinter": 5,
+      "links": 3
+    }
+  }
+}

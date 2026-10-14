@@ -1,0 +1,310 @@
+{
+  "turtlebot": {
+    "position": {
+      "x": 115,
+      "y": 585
+    },
+    "orientation": {
+      "angle_degrees": 0,
+      "compass_direction": "Osten"
+    }
+  },
+  "object_analysis": {
+    "description": "Objekte gruppiert nach Richtung relativ zum Turtlebot (90°-Sektoren)",
+    "sector_definitions": {
+      "vor": "−45° bis +45° relativ zur Turtlebot-Orientierung",
+      "links": "+45° bis +135° relativ zur Turtlebot-Orientierung (positive Winkel = links)",
+      "hinter": "+135° bis +180° und −180° bis −135° relativ zur Turtlebot-Orientierung",
+      "rechts": "−135° bis −45° relativ zur Turtlebot-Orientierung (negative Winkel = rechts)"
+    },
+    "directions": {
+      "vor": [
+        {
+          "id": "stuhl_14",
+          "distance_cm": 71.22,
+          "relative_angle": -38.2
+        },
+        {
+          "id": "kommode",
+          "distance_cm": 88.51,
+          "relative_angle": 32.1
+        },
+        {
+          "id": "pepper",
+          "distance_cm": 150.15,
+          "relative_angle": 15.1
+        },
+        {
+          "id": "wand_3",
+          "distance_cm": 239.65,
+          "relative_angle": 16.7
+        },
+        {
+          "id": "stuhl_3",
+          "distance_cm": 281.02,
+          "relative_angle": -37.5
+        },
+        {
+          "id": "whiteboard_2",
+          "distance_cm": 302.96,
+          "relative_angle": 13.2
+        },
+        {
+          "id": "stuhl_12",
+          "distance_cm": 351.75,
+          "relative_angle": -3.7
+        },
+        {
+          "id": "stuhl_2",
+          "distance_cm": 365.31,
+          "relative_angle": -39.2
+        },
+        {
+          "id": "stuhl_11",
+          "distance_cm": 371.93,
+          "relative_angle": -19.3
+        },
+        {
+          "id": "tisch_6",
+          "distance_cm": 387.93,
+          "relative_angle": -10.8
+        },
+        {
+          "id": "stuhl_10",
+          "distance_cm": 429.01,
+          "relative_angle": -16.7
+        },
+        {
+          "id": "stuhl_9",
+          "distance_cm": 494.96,
+          "relative_angle": -17.5
+        },
+        {
+          "id": "karton_1",
+          "distance_cm": 510.21,
+          "relative_angle": -25.1
+        },
+        {
+          "id": "tisch_5",
+          "distance_cm": 512.72,
+          "relative_angle": -8.2
+        },
+        {
+          "id": "stuhl_13",
+          "distance_cm": 540.49,
+          "relative_angle": -2.4
+        },
+        {
+          "id": "stuhl_8",
+          "distance_cm": 543.27,
+          "relative_angle": -29.7
+        },
+        {
+          "id": "tisch_4",
+          "distance_cm": 557.52,
+          "relative_angle": -18.7
+        },
+        {
+          "id": "fenster_5",
+          "distance_cm": 574.13,
+          "relative_angle": -1.2
+        },
+        {
+          "id": "stuhl_7",
+          "distance_cm": 575.35,
+          "relative_angle": -34.9
+        },
+        {
+          "id": "fenster_4",
+          "distance_cm": 589.66,
+          "relative_angle": -13.2
+        },
+        {
+          "id": "tisch_3",
+          "distance_cm": 606.78,
+          "relative_angle": -29.5
+        },
+        {
+          "id": "fenster_3",
+          "distance_cm": 629.32,
+          "relative_angle": -24.2
+        },
+        {
+          "id": "wand_2",
+          "distance_cm": 629.32,
+          "relative_angle": -24.2
+        },
+        {
+          "id": "tisch_2",
+          "distance_cm": 646.75,
+          "relative_angle": -38.1
+        },
+        {
+          "id": "fenster_2",
+          "distance_cm": 688.94,
+          "relative_angle": -33.6
+        },
+        {
+          "id": "stuhl_6",
+          "distance_cm": 703.82,
+          "relative_angle": -39.6
+        },
+        {
+          "id": "fenster_1",
+          "distance_cm": 763.87,
+          "relative_angle": -41.3
+        }
+      ],
+      "rechts": [
+        {
+          "id": "stuhl_15",
+          "distance_cm": 44.18,
+          "relative_angle": -95.2
+        },
+        {
+          "id": "tisch_7",
+          "distance_cm": 97.53,
+          "relative_angle": -74.5
+        },
+        {
+          "id": "karton_2",
+          "distance_cm": 148.87,
+          "relative_angle": -86.0
+        },
+        {
+          "id": "karton_3",
+          "distance_cm": 158.53,
+          "relative_angle": -69.5
+        },
+        {
+          "id": "muelleimer",
+          "distance_cm": 183.37,
+          "relative_angle": -115.9
+        },
+        {
+          "id": "wand_5",
+          "distance_cm": 234.92,
+          "relative_angle": -123.5
+        },
+        {
+          "id": "stuhl_4",
+          "distance_cm": 282.72,
+          "relative_angle": -54.8
+        },
+        {
+          "id": "tuer_1",
+          "distance_cm": 293.29,
+          "relative_angle": -119.4
+        },
+        {
+          "id": "wand_6",
+          "distance_cm": 293.29,
+          "relative_angle": -119.4
+        },
+        {
+          "id": "tisch_10",
+          "distance_cm": 321.08,
+          "relative_angle": -46.0
+        },
+        {
+          "id": "wand_7",
+          "distance_cm": 340.58,
+          "relative_angle": -112.3
+        },
+        {
+          "id": "stuhl_1",
+          "distance_cm": 366.62,
+          "relative_angle": -52.5
+        },
+        {
+          "id": "wand_8",
+          "distance_cm": 376.97,
+          "relative_angle": -107.8
+        },
+        {
+          "id": "regal",
+          "distance_cm": 383.1,
+          "relative_angle": -85.7
+        },
+        {
+          "id": "wand_9",
+          "distance_cm": 405.23,
+          "relative_angle": -84.0
+        },
+        {
+          "id": "tuer_2",
+          "distance_cm": 407.89,
+          "relative_angle": -98.9
+        },
+        {
+          "id": "tuer_3",
+          "distance_cm": 424.85,
+          "relative_angle": -71.5
+        },
+        {
+          "id": "schrank_2",
+          "distance_cm": 497.53,
+          "relative_angle": -63.6
+        },
+        {
+          "id": "wand_10",
+          "distance_cm": 532.95,
+          "relative_angle": -68.0
+        },
+        {
+          "id": "tisch_1",
+          "distance_cm": 553.42,
+          "relative_angle": -46.1
+        },
+        {
+          "id": "stuhl_5",
+          "distance_cm": 610.73,
+          "relative_angle": -47.3
+        },
+        {
+          "id": "schrank_1",
+          "distance_cm": 692.17,
+          "relative_angle": -53.9
+        },
+        {
+          "id": "wand_1",
+          "distance_cm": 701.42,
+          "relative_angle": -56.5
+        }
+      ],
+      "hinter": [
+        {
+          "id": "tisch_9",
+          "distance_cm": 80.06,
+          "relative_angle": 159.5
+        },
+        {
+          "id": "tisch_8",
+          "distance_cm": 105.01,
+          "relative_angle": -135.6
+        },
+        {
+          "id": "wand_4",
+          "distance_cm": 131.37,
+          "relative_angle": -151.1
+        }
+      ],
+      "links": [
+        {
+          "id": "whiteboard_1",
+          "distance_cm": 69.0,
+          "relative_angle": 90.0
+        }
+      ]
+    }
+  },
+  "summary": {
+    "total_objects": 54,
+    "objects_per_direction": {
+      "vor": 27,
+      "rechts": 23,
+      "hinter": 3,
+      "links": 1
+    }
+  }
+}
